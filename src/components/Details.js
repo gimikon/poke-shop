@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 const TYPE_COLORS = {
@@ -61,7 +61,7 @@ export default class Details extends Component {
     const pokemonSpeciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`;
 
     // Get Pokemon Information
-    const pokemonRes = await Axios.get(pokemonUrl);
+    const pokemonRes = await axios.get(pokemonUrl);
     const name = pokemonRes.data.name;
 
     let { hp, attack, defense, speed, specialAttack, specialDefense } = "";
@@ -125,8 +125,8 @@ export default class Details extends Component {
       })
       .join(", ");
 
-    // Get Pokemon Description .... 
-    await Axios.get(pokemonSpeciesUrl).then((res) => {
+    // Get Pokemon Description
+    await axios.get(pokemonSpeciesUrl).then((res) => {
       let description = "";
       res.data.flavor_text_entries.some((flavor) => {
         if (flavor.language.name === "en") {
@@ -187,10 +187,10 @@ export default class Details extends Component {
           <div className="card-header">
             <div className="row">
               <div className="col-5">
-                <h5>
-                  <span>#</span>
-                  {this.state.pokemonIndex}
-                </h5>
+                
+                  <span>No.{this.state.pokemonIndex}</span>
+                  
+                
               </div>
               <div className="col-7">
                 <div className="float-right">

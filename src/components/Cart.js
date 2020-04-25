@@ -4,7 +4,9 @@ export default class Cart extends Component {
   render() {
     return (
       <div>
-        <h1>Hello from cart</h1>
+      <h1>{this.props.name}</h1>
+      
+        
       </div>
     )
   }

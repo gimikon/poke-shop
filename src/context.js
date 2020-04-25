@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios
+import { storeProducts, detailProduct } from "./data";
 
 const PokemonContext = React.createContext();
 //provider
@@ -11,13 +11,20 @@ class PokemonProvider extends Component {
     detailPokemon: detailProduct,
   };
 
-
-  async componentDidMount() {
-    const res = await axios.get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=300");
-    this.setState({pokemons:res.data["results"]});
-    console.log(pokemons)
+  componentDidMount(){
+    this.setPokemons();
   }
 
+  setPokemons = () => {
+    let temPokemons = [];
+    storeProducts.forEach((item) => {
+      const singleItem = { ...item };
+      temPokemons = [...temPokemons, singleItem];
+    });
+    this.setState(() => {
+      return { pokemons: temPokemons };
+    });
+  };
 
   handleDetail = () => {
     console.log("hello from detail");

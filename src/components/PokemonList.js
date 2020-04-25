@@ -2,33 +2,39 @@ import React, { Component } from "react";
 import Pokemon from "./Pokemon";
 import { Link } from "react-router-dom";
 import spinner from "../components/Spinner.gif";
-import Search from './Search'
-
+import Search from "./Search";
+import Cart from "./Cart";
 import axios from "axios";
 
 export default class PokemonList extends Component {
   state = {
     pokemon: null,
-    pokemonIndex:'',
+    inCart: [],
   };
 
   async componentDidMount() {
-    const url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=300"
+    const url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=300";
     const res = await axios.get(url);
     this.setState({ pokemon: res.data["results"] });
-    const pokemonIndex = url.split("/")[url.split("/").length - 2];
-    console.log(this.state.pokemon);
-    this.setState({pokemonIndex})
+    // console.log(this.state.pokemon);
   }
 
-  addToCart= (pokemonIndex) => {
-
-  }
+  onSaveCart = (name) => {
+    const allPokemons = this.state.inCart
+    allPokemons.push(name)
+    this.setState({inCart:allPokemons})
+  };
 
   render() {
     return (
       <React.Fragment>
-      <Search />
+        <div>
+          {this.state.inCart.map((pokemon) =>(
+            <Cart key={pokemon} name={pokemon} />
+          ) )}
+        
+        </div>
+       
         <div className="py-5">
           <div className="container">
             {this.state.pokemon ? (
@@ -38,6 +44,7 @@ export default class PokemonList extends Component {
                     key={pokemon.name}
                     name={pokemon.name}
                     url={pokemon.url}
+                    onSaveCart={this.onSaveCart}
                   />
                 ))}
               </div>
