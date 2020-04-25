@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
 const TYPE_COLORS = {
   bug: "B1C12E",
@@ -48,6 +49,7 @@ export default class Details extends Component {
     genderRatioFemale: "",
     evs: "",
     themeColor: "#EF5350",
+    inCart:false
   };
 
   async componentDidMount() {
@@ -60,7 +62,6 @@ export default class Details extends Component {
 
     // Get Pokemon Information
     const pokemonRes = await Axios.get(pokemonUrl);
-
     const name = pokemonRes.data.name;
 
     let { hp, attack, defense, speed, specialAttack, specialDefense } = "";
@@ -91,11 +92,8 @@ export default class Details extends Component {
     });
 
     // Convert Decimeters to Feet... The + 0.0001 * 100 ) / 100 is for rounding to two decimal places :)
-    const height =
-      Math.round((pokemonRes.data.height * 0.328084 + 0.00001) * 100) / 100;
-
-    const weight =
-      Math.round((pokemonRes.data.weight * 0.220462 + 0.00001) * 100) / 100;
+    const height = pokemonRes.data.height
+    const weight =pokemonRes.data.weight
 
     const types = pokemonRes.data.types.map((type) => type.type.name);
 
@@ -127,7 +125,7 @@ export default class Details extends Component {
       })
       .join(", ");
 
-    // Get Pokemon Description .... Is from a different end point uggh
+    // Get Pokemon Description .... 
     await Axios.get(pokemonSpeciesUrl).then((res) => {
       let description = "";
       res.data.flavor_text_entries.some((flavor) => {
@@ -189,7 +187,10 @@ export default class Details extends Component {
           <div className="card-header">
             <div className="row">
               <div className="col-5">
-                <h5><span>#</span>{this.state.pokemonIndex}</h5>
+                <h5>
+                  <span>#</span>
+                  {this.state.pokemonIndex}
+                </h5>
               </div>
               <div className="col-7">
                 <div className="float-right">
@@ -223,11 +224,7 @@ export default class Details extends Component {
               </div>
               <div className="col-md-9">
                 <h4 className="mx-auto">
-                  {this.state.name
-                    .toLowerCase()
-                    .split(" ")
-                    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-                    .join(" ")}
+                  {this.state.name}
                 </h4>
                 <div className="row align-items-center">
                   <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
@@ -379,13 +376,13 @@ export default class Details extends Component {
                     <h6 className="float-right">Height:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">{this.state.height} ft.</h6>
+                    <h6 className="float-left">{this.state.height} cm</h6>
                   </div>
                   <div className="col-6">
                     <h6 className="float-right">Weight:</h6>
                   </div>
                   <div className="col-6">
-                    <h6 className="float-left">{this.state.weight} lbs</h6>
+                    <h6 className="float-left">{this.state.weight} kg</h6>
                   </div>
                   <div className="col-6">
                     <h6 className="float-right">Catch Rate:</h6>
@@ -454,10 +451,12 @@ export default class Details extends Component {
             </div>
           </div>
           <div class="card-footer text-muted">
-            Data From{" "}
-            <a href="https://pokeapi.co/" target="_blank" className="card-link">
-              PokeAPI.co
-            </a>
+            <Link to="/">
+              <button btn btn-primary>
+                Go back to main page
+              </button>
+            </Link>
+            
           </div>
         </div>
       </div>

@@ -8,14 +8,6 @@ const Sprite = styled.img`
   height: 10em;
 `;
 
-const Card = styled.div`
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  &:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25) 010px rgba(0, 0, 0, 0.22);
-  }
-`;
-
 export default class Pokemon extends Component {
   state = {
     name: "",
@@ -23,6 +15,8 @@ export default class Pokemon extends Component {
     pokemonIndex: "",
     notAvailable: false,
     imageLoading: true,
+    inCart: false,
+    pokemonInCart:[]
   };
 
   componentDidMount() {
@@ -34,41 +28,54 @@ export default class Pokemon extends Component {
       name: name,
       imageUrl: imageUrl,
       pokemonIndex: pokemonIndex,
+      inCart: false,
     });
   }
+
+ 
+
 
   render() {
     return (
       <div className="col-9 mx-auto col-md-6 col-lg-3 my-3">
-        
-          <div className="card">
+        <div className="card">
+          
+            <h6 className="card-header">No. {this.state.pokemonIndex}</h6>
+          
+
+          
+          <Sprite
+            className="card-img-top rounded mx-auto mt-2"
+            src={this.state.imageUrl}
+            onLoad={() => this.setState({ imageLoading: false })}
+            onError={() => this.setState({ notAvailable: true })}
+          />
+          
+
+          {this.state.notAvailable ? (
+            <h6 className="mx-auto">
+              <span className="badge badge-danger mt-2">Not Available</span>
+            </h6>
+          ) : null}
+
+          <div className="card-body mx-auto">
+            <h6 className="card-title">{this.state.name}</h6>
+          </div>
+          <div className="card-footer d-flex justify-content-around">
           <Link to={`details/${this.state.pokemonIndex}`}>
-            <h5 className="card-header">{this.state.pokemonIndex}</h5>
+            <span style={{color:'#28A745'}}>Details</span>
           </Link>
-
-            <Sprite
-              className="card-img-top rounded mx-auto mt-2"
-              src={this.state.imageUrl}
-              onLoad={() => this.setState({ imageLoading: false })}
-              onError={() => this.setState({ notAvailable: true })}
-            />
-
-            {this.state.notAvailable ? (
-              <h6 className="mx-auto">
-                <span className="badge badge-danger mt-2">Not Available</span>
-              </h6>
-            ) : null}
-
-            <div className="card-body mx-auto">
-              <h6 className="card-title">{this.state.name}</h6>
-            </div>
-            <div className="card-footer d-flex justify-content-between">
+            {this.state.inCart ? (
+              <button onClick={() => this.setState({ inCart: false })}>
+                In Cart
+              </button>
+            ) : (
               <button>
                 <i className="fas fa-cart-plus" />
               </button>
-            </div>
+            )}
           </div>
-        
+        </div>
       </div>
     );
   }

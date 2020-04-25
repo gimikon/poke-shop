@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
 :root {
   --mainBlue: #2a2a72;
   --lightBlue: #009ffd;
@@ -7,7 +8,7 @@
 }
 
 body {
-  font-family: monospace !important;
+  font-family: fantasy;
   color: var(--mainDark) !important;
 }
 
