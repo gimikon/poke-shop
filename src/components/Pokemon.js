@@ -40,33 +40,35 @@ export default class Pokemon extends Component {
   render() {
     return (
       <div className="col-9 mx-auto col-md-6 col-lg-3 my-3">
-      <Link to={`details/${this.state.pokemonIndex}`}>
-        <div className="card">
-          <h5 className="card-header">{this.state.pokemonIndex}</h5>
+        
+          <div className="card">
+          <Link to={`details/${this.state.pokemonIndex}`}>
+            <h5 className="card-header">{this.state.pokemonIndex}</h5>
+          </Link>
 
-          <Sprite
-            className="card-img-top rounded mx-auto mt-2"
-            src={this.state.imageUrl}
-            onLoad={() => this.setState({ imageLoading: false })}
-            onError={() => this.setState({ notAvailable: true })}
-          />
+            <Sprite
+              className="card-img-top rounded mx-auto mt-2"
+              src={this.state.imageUrl}
+              onLoad={() => this.setState({ imageLoading: false })}
+              onError={() => this.setState({ notAvailable: true })}
+            />
 
-          {this.state.notAvailable ? (
-            <h6 className="mx-auto">
-              <span className="badge badge-danger mt-2">Not Available</span>
-            </h6>
-          ) : null}
+            {this.state.notAvailable ? (
+              <h6 className="mx-auto">
+                <span className="badge badge-danger mt-2">Not Available</span>
+              </h6>
+            ) : null}
 
-          <div className="card-body mx-auto">
-            <h6 className="card-title">{this.state.name}</h6>
+            <div className="card-body mx-auto">
+              <h6 className="card-title">{this.state.name}</h6>
+            </div>
+            <div className="card-footer d-flex justify-content-between">
+              <button>
+                <i className="fas fa-cart-plus" />
+              </button>
+            </div>
           </div>
-          <div className="card-footer d-flex justify-content-between">
-            <button>
-              <i className="fas fa-cart-plus" />
-            </button>
-          </div>
-        </div>
-      </Link>
+        
       </div>
     );
   }

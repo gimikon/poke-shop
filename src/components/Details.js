@@ -47,7 +47,6 @@ export default class Details extends Component {
     genderRatioMale: "",
     genderRatioFemale: "",
     evs: "",
-    hatchSteps: "",
     themeColor: "#EF5350",
   };
 
@@ -190,7 +189,7 @@ export default class Details extends Component {
           <div className="card-header">
             <div className="row">
               <div className="col-5">
-                <h5>{this.state.pokemonIndex}</h5>
+                <h5><span>#</span>{this.state.pokemonIndex}</h5>
               </div>
               <div className="col-7">
                 <div className="float-right">
