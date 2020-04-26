@@ -19,22 +19,30 @@ export default class PokemonList extends Component {
     // console.log(this.state.pokemon);
   }
 
-  onSaveCart = (name) => {
-    const allPokemons = this.state.inCart
-    allPokemons.push(name)
-    this.setState({inCart:allPokemons})
+  onSaveCart = (newPokemon) => {
+    const pokemonInCart = this.state.inCart;
+    pokemonInCart.push(newPokemon);
+    this.setState({ inCart: pokemonInCart });
+    console.log(this.state.inCart);
+    
   };
+
+
 
   render() {
     return (
       <React.Fragment>
         <div>
-          {this.state.inCart.map((pokemon) =>(
-            <Cart key={pokemon} name={pokemon} />
-          ) )}
-        
+          {this.state.inCart.map((pokemon) => (
+            <Cart
+              key={pokemon}
+              id={pokemon.pokemonIndex}
+              name={pokemon.name}
+              cart={pokemon.inCart}
+            />
+          ))}
         </div>
-       
+
         <div className="py-5">
           <div className="container">
             {this.state.pokemon ? (

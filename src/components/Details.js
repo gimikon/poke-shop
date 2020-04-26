@@ -91,21 +91,14 @@ export default class Details extends Component {
       }
     });
 
-    // Convert Decimeters to Feet... The + 0.0001 * 100 ) / 100 is for rounding to two decimal places :)
+   
     const height = pokemonRes.data.height
     const weight =pokemonRes.data.weight
-
     const types = pokemonRes.data.types.map((type) => type.type.name);
-
     const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
-
     const abilities = pokemonRes.data.abilities
       .map((ability) => {
         return ability.ability.name
-          .toLowerCase()
-          .split("-")
-          .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-          .join(" ");
       })
       .join(", ");
 
@@ -125,7 +118,7 @@ export default class Details extends Component {
       })
       .join(", ");
 
-    // Get Pokemon Description
+    // To get Pokemon Description
     await axios.get(pokemonSpeciesUrl).then((res) => {
       let description = "";
       res.data.flavor_text_entries.some((flavor) => {

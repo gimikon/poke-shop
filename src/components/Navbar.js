@@ -18,17 +18,20 @@ export default class Navbar extends Component {
         <ul className="navbar-nav align-items-center">
           <li className="nav-item ml-5">
             <Link to="/" className="nav-link">
-              <h4 style={{lineSpaceing:"2rem"}}>Poke Shopping</h4>
+              <h4 style={{ lineSpaceing: "2rem" }}>Poke Shopping</h4>
             </Link>
           </li>
         </ul>
         <Link to="/cart" className="ml-auto">
-          <ButtonContainer>
+          <Link to="/cart">
             <span>
               {" "}
-              <i className="fa fa-shopping-cart" />{" "}
+              <i
+                style={{ color: "purple" }}
+                className="fa fa-shopping-cart"
+              />{" "}
             </span>
-          </ButtonContainer>
+          </Link>
         </Link>
       </nav>
     );

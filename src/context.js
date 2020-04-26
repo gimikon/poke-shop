@@ -8,36 +8,29 @@ const PokemonContext = React.createContext();
 class PokemonProvider extends Component {
   state = {
     pokemons: [],
-    detailPokemon: detailProduct,
+    pokemonIndex: "",
   };
 
-  componentDidMount(){
-    this.setPokemons();
-  }lk;k;klgi
-
-  setPokemons = () => {
-    let temPokemons = [];
-    storeProducts.forEach((item) => {
-      const singleItem = { ...item };
-      temPokemons = [...temPokemons, singleItem];
-    });
-    this.setState(() => {
-      return { pokemons: temPokemons };
-    });
-  };
+  async componentDidMount() {
+    const url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=300";
+    const res = await axios.get(url);
+    this.setState({ pokemons: res.data["results"] });
+    const pokemonIndex = url.split("/")[url.split("/").length - 2];
+    this.setState({ pokemonIndex });
+  }
 
   getItem = (id) => {
-    const pokemon = this.state.pokemons.find(item=> item.id === id )
+    const pokemon = this.state.pokemons.find((item) => item.id === id);
     return pokemon;
-  }
+  };
 
   handleDetail = (id) => {
     const pokemon = this.getItem();
-    this.setState(()=> {
-      return {detailPokemon:pokemon}
-    })
+    this.setState(() => {
+      return { detailPokemon: pokemon };
+    });
   };
-  addToCart = id => {
+  addToCart = (id) => {
     console.log(`hello from add to cart.id is ${id}`);
   };
 

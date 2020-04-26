@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import Modal from './Modal'
 
 const Sprite = styled.img`
   width: 10em;
@@ -12,11 +12,12 @@ export default class Pokemon extends Component {
   state = {
     name: "",
     imageUrl: "",
-    pokemonIndex: "",
+    pokemonIndex: null,
     notAvailable: false,
     imageLoading: true,
     inCart: false,
-    price:Math.floor( Math.random() * (10 + 1 - 2) ) + 3
+    price:'',
+    modalOpen:false,
   };
 
   componentDidMount() {
@@ -28,15 +29,24 @@ export default class Pokemon extends Component {
       name: name,
       imageUrl: imageUrl,
       pokemonIndex: pokemonIndex,
-      inCart: false,
+      price:parseInt(pokemonIndex) * 2,
     });
   }
 
   handleSubmit = (event) => {
-    this.props.onSaveCart(this.state.name)
-    this.setState({inCart:true})
+    this.setState({ inCart: true });
+    const pokemonData = this.state;
+    this.props.onSaveCart(pokemonData);
+    this.openModal()
+  };
+
+  openModal(){
+    this.setState({modalOpen:true})
   }
- 
+
+  closeModal = () => {
+    this.setState({modalOpen:false})
+  }
 
   render() {
     return (
@@ -64,13 +74,17 @@ export default class Pokemon extends Component {
             </Link>
             {this.state.inCart ? (
               <button onClick={() => this.setState({ inCart: false })}>
-                Added
+                In cart
               </button>
             ) : (
               <button onClick={this.handleSubmit}>
                 <i className="fas fa-cart-plus" />
               </button>
             )}
+            {this.state.modalOpen? (
+              <Modal img={this.state.imageUrl} price={this.state.price} name={this.state.name} closeModal={this.closeModal}/>
+              ):
+            null}
           </div>
         </div>
       </div>
