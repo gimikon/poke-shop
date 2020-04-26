@@ -67,9 +67,9 @@ export default class Pokemon extends Component {
     return (
       <div className="col-9 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card">
-          <h6 className="card-header">Price:$ {this.state.price}</h6>
+        
           <Sprite
-            className="card-img-top rounded mx-auto mt-2"
+            className="card-img-top rounded mx-auto mt-2 pt-3"
             src={this.state.imageUrl}
             onLoad={() => this.setState({ imageLoading: false })}
             onError={() => this.setState({ notAvailable: true })}
@@ -81,18 +81,19 @@ export default class Pokemon extends Component {
           ) : null}
 
           <div className="card-body mx-auto">
-            <h6 className="card-title text-capitalize">{this.state.name}</h6>
+            <h6 className="card-title text-capitalize">
+            {this.state.name}  <Link to={`details/${this.state.pokemonIndex}`}>
+            <span style={{color:'#FF3839'}}><i class="far fa-question-circle"></i></span>
+          </Link>
+            </h6>
+           
           </div>
-          <div className="card-footer d-flex justify-content-around">
-            <Link to={`details/${this.state.pokemonIndex}`}>
-              <span style={{ color: "#28A745" }}>Details</span>
-            </Link>
+          <div className="pb-3 d-flex justify-content-center" style={{backgroundColor:'white'}}>
+           
             {this.state.inCart ? (
-              <button onClick={() => this.setState({ inCart: false })}>
-                In cart
-              </button>
+              <p>In cart</p> 
             ) : (
-              <button onClick={this.handleSubmit} className="cart-btn" style={{backgroundColor:'#28A745', color:'white', border:'none'}}>
+              <button onClick={this.handleSubmit} className="cart-btn" style={{backgroundColor:'#383838', color:'white', borderRadius:'4px',outline:'none'}} >
                 <i className="fas fa-cart-plus" />
               </button>
             )}

@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
-
+import React, { Component } from "react";
 
 export default class Cart extends Component {
   state = {
-    pokemonInCart:[],
-    totalPrice:'',
-    inCart:true,
-   
+    pokemonInCart: [],
+    totalPrice: "",
+    inCart: true,
   };
 
   componentDidMount() {
@@ -15,21 +13,19 @@ export default class Cart extends Component {
 
     this.setState({
       name: name,
-      id:id,
+      id: id,
       imageUrl: imageUrl,
       inCart: true,
-       
     });
   }
 
-  
   render() {
     return (
       <div>
-      <p>{this.state.name}</p>
-        
-      
+        <p>hello from the cart</p>
+        <p>{this.state.name}</p> 
+        {/*ask aleks*/}
       </div>
-    )
+    );
   }
 }

@@ -8,15 +8,15 @@ const TYPE_COLORS = {
   dragon: "755EDF",
   electric: "FCBC17",
   fairy: "F4B1F4",
-  fighting: "823551D",
+  fighting: "8C03128",
   fire: "E73B0C",
-  flying: "A3B3F7",
+  flying: "A890F1",
   ghost: "6060B2",
   grass: "74C236",
   ground: "D3B357",
   ice: "A3E7FD",
-  normal: "C8C4BC",
-  poison: "934594",
+  normal: "A8A878",
+  poison: "A040A0",
   psychic: "ED4882",
   rock: "B9A156",
   steel: "B5B5C3",
@@ -175,7 +175,7 @@ export default class Details extends Component {
 
   render() {
     return (
-      <div className="col">
+      <div className="col text-capitalize">
         <div className="card">
           <div className="card-header">
             <div className="row">
