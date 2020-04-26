@@ -13,7 +13,7 @@ class PokemonProvider extends Component {
 
   componentDidMount(){
     this.setPokemons();
-  }
+  }lk;k;klgi
 
   setPokemons = () => {
     let temPokemons = [];
@@ -26,11 +26,19 @@ class PokemonProvider extends Component {
     });
   };
 
-  handleDetail = () => {
-    console.log("hello from detail");
+  getItem = (id) => {
+    const pokemon = this.state.pokemons.find(item=> item.id === id )
+    return pokemon;
+  }
+
+  handleDetail = (id) => {
+    const pokemon = this.getItem();
+    this.setState(()=> {
+      return {detailPokemon:pokemon}
+    })
   };
-  addToCart = () => {
-    console.log("hello from add to cart");
+  addToCart = id => {
+    console.log(`hello from add to cart.id is ${id}`);
   };
 
   render() {
