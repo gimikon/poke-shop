@@ -5,7 +5,7 @@ export default class Cart extends Component {
   state = {
     pokemonInCart:[],
     totalPrice:'',
-    inCart:false,
+    inCart:true,
    
   };
 
@@ -26,7 +26,7 @@ export default class Cart extends Component {
   render() {
     return (
       <div>
-      {this.state.inCart? (<p>{this.state.name}</p>):null}
+      <p>{this.state.name}</p>
         
       
       </div>

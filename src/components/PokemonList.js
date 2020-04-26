@@ -57,7 +57,7 @@ export default class PokemonList extends Component {
                 ))}
               </div>
             ) : (
-              <h1>Loading...</h1>
+              <h1 style={{textAlign:'center'}}>Loading.....</h1>
             )}
           </div>
         </div>

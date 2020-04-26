@@ -27,8 +27,8 @@ export default class Navbar extends Component {
             <span>
               {" "}
               <i
-                style={{ color: "purple" }}
-                className="fa fa-shopping-cart"
+                style={{ color: "white" }}
+                className="fa fa-shopping-cart fa-2x"
               />{" "}
             </span>
           </Link>

@@ -3,9 +3,24 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Modal from './Modal'
 
+
 const Sprite = styled.img`
   width: 10em;
   height: 10em;
+`;
+
+const CartButton = styled.button`
+.cart-btn {
+position:absolute;
+bottom:0;
+right:0;
+padding:0.2rem 0.4rem;
+background:blue;
+border:none;
+color:white;
+font-size:1.4em;
+border-radius:0.5 0 0 0;
+}
 `;
 
 export default class Pokemon extends Component {
@@ -66,7 +81,7 @@ export default class Pokemon extends Component {
           ) : null}
 
           <div className="card-body mx-auto">
-            <h6 className="card-title">{this.state.name}</h6>
+            <h6 className="card-title text-capitalize">{this.state.name}</h6>
           </div>
           <div className="card-footer d-flex justify-content-around">
             <Link to={`details/${this.state.pokemonIndex}`}>
@@ -77,7 +92,7 @@ export default class Pokemon extends Component {
                 In cart
               </button>
             ) : (
-              <button onClick={this.handleSubmit}>
+              <button onClick={this.handleSubmit} className="cart-btn" style={{backgroundColor:'#28A745', color:'white', border:'none'}}>
                 <i className="fas fa-cart-plus" />
               </button>
             )}
