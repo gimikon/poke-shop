@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import { HashRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
+import { PokemonProvider } from './context';
 
 ReactDOM.render(
+  <PokemonProvider>
     <Router>
-      <App />
-    </Router>,
+      <App /> 
+    </Router>
+  </PokemonProvider>,
 
   document.getElementById("root")
 );

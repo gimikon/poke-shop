@@ -1,19 +1,30 @@
-
-import axios from 'axios';
-let results = ''
+import React, { Component } from 'react'
 
 
-export const pokeData = results 
+const PokemonContext = React.createContext();
+//create a new context
 
-    async componentDidMount() {
-      const res = await axios.get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=300");
-       results= res.data["results"]
-      console.log(results);
-    }
+class PokemonProvider extends Component {
+  state = {
+    name: "",
+    imageUrl: "",
+    pokemonIndex: null,
+    notAvailable: false,
+    imageLoading: true,
+    inCart: false,
+    price:'',
+    total:'',
+    count:'',
+    modalOpen:false,
+  }
 
+  render() {
+    return (
+      <PokemonContext.Provider value="hello">
+      {this.props.children}
+      </PokemonContext.Provider>
+    )
+  }
+}
 
-
-
-
-
-
+export default PokemonProvider

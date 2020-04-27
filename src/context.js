@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { storeProducts, detailProduct } from "./data";
+
 
 const PokemonContext = React.createContext();
 //provider
@@ -7,17 +7,11 @@ const PokemonContext = React.createContext();
 
 class PokemonProvider extends Component {
   state = {
-    pokemons: [],
-    pokemonIndex: "",
+    pokemonInCart:[]
+ 
   };
 
-  async componentDidMount() {
-    const url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=300";
-    const res = await axios.get(url);
-    this.setState({ pokemons: res.data["results"] });
-    const pokemonIndex = url.split("/")[url.split("/").length - 2];
-    this.setState({ pokemonIndex });
-  }
+
 
   getItem = (id) => {
     const pokemon = this.state.pokemons.find((item) => item.id === id);
@@ -30,17 +24,21 @@ class PokemonProvider extends Component {
       return { detailPokemon: pokemon };
     });
   };
-  addToCart = (id) => {
-    console.log(`hello from add to cart.id is ${id}`);
+  addToCart = (pokemon) => {
+    this.setState({pokemonInCart:[...this.state.pokemonInCart,pokemon]})
   };
+
+  
+
+
 
   render() {
     return (
       <PokemonContext.Provider
         value={{
           ...this.state,
-          handleDetail: this.handleDetail,
-          addToCart: this.addToCart,
+          addToCart:this.addToCart
+
         }}
       >
         {this.props.children}

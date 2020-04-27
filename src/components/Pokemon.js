@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Modal from './Modal'
+import { PokemonConsumer} from '../context'
 
 
 const Sprite = styled.img`
@@ -32,6 +33,8 @@ export default class Pokemon extends Component {
     imageLoading: true,
     inCart: false,
     price:'',
+    total:'',
+    count:'',
     modalOpen:false,
   };
 
@@ -88,20 +91,26 @@ export default class Pokemon extends Component {
             </h6>
            
           </div>
+          <PokemonConsumer>
+          
           <div className="pb-3 d-flex justify-content-center" style={{backgroundColor:'white'}}>
            
             {this.state.inCart ? (
               <p>In cart</p> 
             ) : (
-              <button onClick={this.handleSubmit} className="cart-btn" style={{backgroundColor:'#383838', color:'white', borderRadius:'4px',outline:'none'}} >
+              {(value) =>{
+              <button onClick={() => value.addToCart(this.state)} className="cart-btn" style={{backgroundColor:'#ff4f40', color:'white', borderRadius:'4px',outline:'none'}} >
                 <i className="fas fa-cart-plus" />
               </button>
+            }}
             )}
             {this.state.modalOpen? (
               <Modal img={this.state.imageUrl} price={this.state.price} name={this.state.name} closeModal={this.closeModal}/>
               ):
             null}
           </div>
+        
+          </PokemonConsumer>
         </div>
       </div>
     );
