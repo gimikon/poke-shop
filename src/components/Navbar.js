@@ -2,23 +2,24 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../pokeball.png";
 import { ButtonContainer } from "./Button";
+import { Nav } from 'react-bootstrap';
 
 export default class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-sm bg-success navbar-dark px-sm-5">
-        <Link to="/">
+      <nav className="navbar navbar-expand-sm navbar-dark px-sm-5" style={{backgroundColor:'#184E86'}}>
+        <Nav.Link to="#/">
           <img
             src={logo}
             alt="store"
             className="navbar-brand"
             style={{ width: "2em", height: "3rem" }}
           />
-        </Link>
+        </Nav.Link>
         <ul className="navbar-nav align-items-center">
           <li className="nav-item ml-5">
             <Link to="/" className="nav-link">
-              <h3 style={{ lineSpaceing: "2rem" }}>Poke Shopping</h3>
+              <h3 style={{ lineSpaceing: "3rem", color:'#FBD003', fontWeight:'bold' }}>Poké Shop!</h3>
             </Link>
           </li>
         </ul>

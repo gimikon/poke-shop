@@ -5,52 +5,28 @@ import spinner from "../components/Spinner.gif";
 import Search from "./Search";
 import Cart from "./Cart";
 import axios from "axios";
+import { PokemonConsumer } from "../context";
 
 export default class PokemonList extends Component {
-  state = {
-    pokemon: null,
-    inCart: [],
-  };
-
-  async componentDidMount() {
-    const url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=300";
-    const res = await axios.get(url);
-    this.setState({ pokemon: res.data["results"] });
-    // console.log(this.state.pokemon);
-  }
-
-  onSaveCart = (newPokemon) => {
-    const pokemonInCart = this.state.inCart;
-    pokemonInCart.push(newPokemon);
-    this.setState({ inCart: pokemonInCart });
-    console.log(this.state.inCart);
-    
-  };
-
-
-
   render() {
     return (
       <React.Fragment>
-      
-        <div className="py-5">
-          <div className="container">
-            {this.state.pokemon ? (
-              <div className="row">
-                {this.state.pokemon.map((pokemon) => (
-                  <Pokemon
-                    key={pokemon.name}
-                    name={pokemon.name}
-                    url={pokemon.url}
-                    onSaveCart={this.onSaveCart}
-                  />
-                ))}
+        <PokemonConsumer>
+          {(value) => (
+            <div className="py-6">
+              <div className="container">
+                <div className="row">
+                {value.pokemonData.map((item) => {
+                  return <Pokemon 
+                  key={item.id}
+                  name={item.name}
+                  url={item.url}/>
+                })}
+                </div>
               </div>
-            ) : (
-              <h1 style={{textAlign:'center'}}>Loading.....</h1>
-            )}
-          </div>
-        </div>
+            </div>
+          )}
+        </PokemonConsumer>
       </React.Fragment>
     );
   }

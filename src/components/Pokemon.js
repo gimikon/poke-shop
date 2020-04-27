@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Modal from './Modal'
-import { PokemonConsumer} from '../context'
-
+import Modal from "./Modal";
+import { PokemonConsumer } from "../context";
 
 const Sprite = styled.img`
   width: 10em;
@@ -11,66 +10,73 @@ const Sprite = styled.img`
 `;
 
 const CartButton = styled.button`
-.cart-btn {
-position:absolute;
-bottom:0;
-right:0;
-padding:0.2rem 0.4rem;
-background:blue;
-border:none;
-color:white;
-font-size:1.4em;
-border-radius:0.5 0 0 0;
-}
+  .cart-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.2rem 0.4rem;
+    background: blue;
+    border: none;
+    color: white;
+    font-size: 1.4em;
+    border-radius: 0.5 0 0 0;
+  }
 `;
 
 export default class Pokemon extends Component {
-  state = {
-    name: "",
-    imageUrl: "",
-    pokemonIndex: null,
-    notAvailable: false,
-    imageLoading: true,
-    inCart: false,
-    price:'',
-    total:'',
-    count:'',
-    modalOpen:false,
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      name: "",
+      imageUrl: "",
+      pokemonIndex: null,
+      notAvailable: false,
+      imageLoading: true,
+      inCart: false,
+      price: "",
+      modalOpen: false,
+      id:'',
+      total:'',
+      count:0,
+    };
+  }
 
   componentDidMount() {
     const { name, url } = this.props;
-    const pokemonIndex = url.split("/")[url.split("/").length - 2];
+    const pokemonIndex = url.split("/")[url.split("/").length - 2]; 
     const imageUrl = `https://pokeres.bastionbot.org/images/pokemon/${pokemonIndex}.png`;
+    
 
     this.setState({
       name: name,
       imageUrl: imageUrl,
       pokemonIndex: pokemonIndex,
-      price:parseInt(pokemonIndex) * 2,
+      price: parseInt(pokemonIndex) * 2,
+      id:parseInt(pokemonIndex)
     });
   }
 
-  handleSubmit = (event) => {
-    this.setState({ inCart: true });
+  handleSubmit = () => {
+    this.setState((value) => {
+      return { ...value, inCart: true };
+    });
     const pokemonData = this.state;
-    this.props.onSaveCart(pokemonData);
-    this.openModal()
+    this.openModal();
   };
 
-  openModal(){
-    this.setState({modalOpen:true})
+  openModal() {
+    this.setState({ modalOpen: true });
   }
 
   closeModal = () => {
-    this.setState({modalOpen:false})
-  }
+    this.setState({ modalOpen: false });
+  };
 
   render() {
     return (
       <div className="col-9 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card">
-        
           <Sprite
             className="card-img-top rounded mx-auto mt-2 pt-3"
             src={this.state.imageUrl}
@@ -85,31 +91,52 @@ export default class Pokemon extends Component {
 
           <div className="card-body mx-auto">
             <h6 className="card-title text-capitalize">
-            {this.state.name}  <Link to={`details/${this.state.pokemonIndex}`}>
-            <span style={{color:'#FF3839'}}><i class="far fa-question-circle"></i></span>
-          </Link>
+              {this.state.name}{" "}
+              <Link to={`details/${this.state.pokemonIndex}`}>
+                <span style={{ color: "#FF3839" }}>
+                  <i class="far fa-question-circle"></i>
+                </span>
+              </Link>
             </h6>
-           
           </div>
           <PokemonConsumer>
-          
-          <div className="pb-3 d-flex justify-content-center" style={{backgroundColor:'white'}}>
-           
-            {this.state.inCart ? (
-              <p>In cart</p> 
-            ) : (
-              {(value) =>{
-              <button onClick={() => value.addToCart(this.state)} className="cart-btn" style={{backgroundColor:'#ff4f40', color:'white', borderRadius:'4px',outline:'none'}} >
-                <i className="fas fa-cart-plus" />
-              </button>
-            }}
+            {(value) => (
+              <div
+                className="pb-3 d-flex justify-content-center"
+                style={{ backgroundColor: "white" }}
+              >
+                {this.state.inCart ? (
+                  <p>In cart</p>
+                ) : (
+                  <button
+                    onClick={() => {
+                      this.handleSubmit();
+                      value.addToCart({
+                        ...this.state,
+                        inCart: !this.state.inCart,
+                      });
+                    }}
+                    className="cart-btn"
+                    style={{
+                      backgroundColor: "#ff4f40",
+                      color: "white",
+                      borderRadius: "4px",
+                      outline: "none",
+                    }}
+                  >
+                    <i className="fas fa-cart-plus" />
+                  </button>
+                )}
+                {this.state.modalOpen ? (
+                  <Modal
+                    img={this.state.imageUrl}
+                    price={this.state.price}
+                    name={this.state.name}
+                    closeModal={this.closeModal}
+                  />
+                ) : null}
+              </div>
             )}
-            {this.state.modalOpen? (
-              <Modal img={this.state.imageUrl} price={this.state.price} name={this.state.name} closeModal={this.closeModal}/>
-              ):
-            null}
-          </div>
-        
           </PokemonConsumer>
         </div>
       </div>
