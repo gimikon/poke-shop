@@ -7,6 +7,7 @@ import PokemonList from "./components/PokemonList";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Default from "./components/Default";
+import Home from "./components/Home";
 
 class App extends Component {
   render() {
@@ -14,7 +15,8 @@ class App extends Component {
       <React.Fragment>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={PokemonList} />
+          <Route exact path="/" component ={Home} />
+          <Route exact path="/pokemons" component={PokemonList} />
           <Route path="/details/:pokemonIndex" component={Details} />
           <Route path="/cart" component={Cart} />
           <Route component={Default} />

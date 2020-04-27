@@ -96,8 +96,8 @@ export default class Pokemon extends Component {
             <h6 className="card-title text-capitalize">
               {this.state.name}{" "}
               <Link to={`details/${this.state.pokemonIndex}`}>
-                <span style={{ color: "#FF3839" }}>
-                  <i className="far fa-question-circle"></i>
+                <span style={{ color: "gray" }}>
+                <i class="fas fa-info-circle"></i>
                 </span>
               </Link>
             </h6>
@@ -109,9 +109,10 @@ export default class Pokemon extends Component {
                 style={{ backgroundColor: "white" }}
               >
                 {this.state.inCart ? (
-                  <p>In cart</p>
+                  <button className="btn btn-secondary">In cart</button>
                 ) : (
                   <button
+                    
                     onClick={() => {
                       this.handleSubmit();
                       value.addToCart({
@@ -121,10 +122,12 @@ export default class Pokemon extends Component {
                     }}
                     className="cart-btn"
                     style={{
-                      backgroundColor: "#ff4f40",
+                      backgroundColor: "#FBD003",
                       color: "white",
                       borderRadius: "4px",
                       outline: "none",
+                      paddingRight:'12px',
+                      paddingLeft:'12px',
                     }}
                   >
                     <i className="fas fa-cart-plus" />

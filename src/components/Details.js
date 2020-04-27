@@ -443,10 +443,10 @@ export default class Details extends Component {
               </div>
             </div>
           </div>
-          <div class="card-footer text-muted">
-            <Link to="/">
-              <button btn btn-primary>
-                Go back to main page
+          <div class="card-footer">
+            <Link to="/pokemons">
+              <button className="btn btn-secondary float-right">
+               Go Back
               </button>
             </Link>
             

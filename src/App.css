@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Ruda&display=swap');
+
 :root {
   --mainBlue: #2a2a72;
   --lightBlue: #009ffd;
@@ -8,12 +10,12 @@
 }
 
 body {
-  font-family: fantasy;
+  font-family: 'Bree Serif' !important;
   color: var(--mainDark) !important;
 }
 
 .text-title {
-  font-family: fantasy;
+  font-family: "Ruda" !important;
   letter-spacing: 0.3rem;
 }
 

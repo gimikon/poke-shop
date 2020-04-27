@@ -9,16 +9,21 @@ class PokemonProvider extends Component {
   state = {
     pokemonInCart: [],
     pokemonData: [],
+    id:null,
     cartSubTotal: 0,
     cartSubTax: 0,
     cartTotal: 0,
+    
   };
 
   async componentDidMount() {
     const url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=300";
     const res = await axios.get(url);
+    const pokemonIndex = url.split("/")[url.split("/").length - 2]; 
+    const id = parseInt(pokemonIndex)
     this.setState({ pokemonData: res.data["results"] });
     // console.log(this.state.pokemon);
+    this.setState({id:id})
   }
 
   getItem = (id) => {
@@ -26,24 +31,16 @@ class PokemonProvider extends Component {
     return pokemon;
   };
 
-  handleDetail = (id) => {
-  
-    const pokemon = this.getItem();
-    this.setState(() => {
-      return { detailPokemon: pokemon };
-    });
-  };
 
   addToCart = (pokemon) => {
     this.setState({ pokemonInCart: [...this.state.pokemonInCart, pokemon] });
-    console.log(this.state.pokemonInCart);
     console.log(pokemon);
     this.setState(
-      ()=> {
-        this.addTotals()
-      }
-    )
-  };
+      () =>  {
+      this.addTotals();
+    }
+  );
+};
 
   increment = (id) => {
     console.log("this is just increment");
@@ -53,29 +50,33 @@ class PokemonProvider extends Component {
   };
 
   removeItem = (id) => {
-    console.log("this is remove");
+    this.setState({})
   };
 
   clearCart = () => {
-    console.log("the cart is cleared")
-  }
+    this.setState(()=> {
+      return {pokemonInCart:[]}
+    })
+  };
 
   addTotals = () => {
-    let subTotal = 0;
-    this.state.pokemonInCart.map(item => (subTotal += item.price))
+    let subTotal = 0
+    this.state.pokemonInCart.map((item) => (subTotal += item.price));
     const tempTax = subTotal * 0.1;
-    const tax = parseFloat(tempTax.toFixed(2))
-    const total = subTotal + tax 
-    
-    this.setState(()=> {
+    const tax = parseFloat(tempTax.toFixed(2));
+    const total = subTotal + tax;
+
+    this.setState(() => {
       return {
-        cartSubTotal:subTotal,
-        cartTax:tax,
-        cartTotal:total
-      }
-    })
-    console.log(subTotal, tax, total)
-  }
+        cartSubTotal: subTotal,
+        cartSubTax: tax,
+        cartTotal: total,
+      };
+    });
+    console.log(subTotal, tax, total);
+  };
+
+ 
 
   render() {
     return (
@@ -83,10 +84,10 @@ class PokemonProvider extends Component {
         value={{
           ...this.state,
           addToCart: this.addToCart,
-          increment:this.increment,
-          decrement:this.decrement,
-          removeItem:this.removeItem,
-          clearCart:this.clearCart
+          increment: this.increment,
+          decrement: this.decrement,
+          removeItem: this.removeItem,
+          clearCart: this.clearCart,
         }}
       >
         {this.props.children}
