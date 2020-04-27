@@ -14,7 +14,7 @@ export default class PokemonList extends Component {
         <PokemonConsumer>
           {(value) => (
             <div className="py-6">
-              <div className="container">
+              <div className="container mt-10">
                 <div className="row">
                 {value.pokemonData.map((item) => {
                   return <Pokemon 

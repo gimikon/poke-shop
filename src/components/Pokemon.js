@@ -34,10 +34,10 @@ export default class Pokemon extends Component {
       notAvailable: false,
       imageLoading: true,
       inCart: false,
-      price: "",
+      price: 0,
       modalOpen: false,
       id:'',
-      total:'',
+      total:0,
       count:0,
     };
   }
@@ -53,7 +53,8 @@ export default class Pokemon extends Component {
       imageUrl: imageUrl,
       pokemonIndex: pokemonIndex,
       price: parseInt(pokemonIndex) * 2,
-      id:parseInt(pokemonIndex)
+      id:parseInt(pokemonIndex),
+      
     });
   }
 
@@ -73,9 +74,11 @@ export default class Pokemon extends Component {
     this.setState({ modalOpen: false });
   };
 
+ 
+
   render() {
     return (
-      <div className="col-9 mx-auto col-md-6 col-lg-3 my-3">
+      <div className="col-9 mx-auto col-md-6 col-lg-3 my-4">
         <div className="card">
           <Sprite
             className="card-img-top rounded mx-auto mt-2 pt-3"
@@ -94,7 +97,7 @@ export default class Pokemon extends Component {
               {this.state.name}{" "}
               <Link to={`details/${this.state.pokemonIndex}`}>
                 <span style={{ color: "#FF3839" }}>
-                  <i class="far fa-question-circle"></i>
+                  <i className="far fa-question-circle"></i>
                 </span>
               </Link>
             </h6>

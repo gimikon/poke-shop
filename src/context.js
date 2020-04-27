@@ -22,11 +22,12 @@ class PokemonProvider extends Component {
   }
 
   getItem = (id) => {
-    const pokemon = this.state.pokemons.find((item) => item.id === id);
+    const pokemon = this.state.pokemonData.find((item) => item.id === id);
     return pokemon;
   };
 
   handleDetail = (id) => {
+  
     const pokemon = this.getItem();
     this.setState(() => {
       return { detailPokemon: pokemon };
@@ -37,6 +38,11 @@ class PokemonProvider extends Component {
     this.setState({ pokemonInCart: [...this.state.pokemonInCart, pokemon] });
     console.log(this.state.pokemonInCart);
     console.log(pokemon);
+    this.setState(
+      ()=> {
+        this.addTotals()
+      }
+    )
   };
 
   increment = (id) => {
@@ -52,6 +58,23 @@ class PokemonProvider extends Component {
 
   clearCart = () => {
     console.log("the cart is cleared")
+  }
+
+  addTotals = () => {
+    let subTotal = 0;
+    this.state.pokemonInCart.map(item => (subTotal += item.price))
+    const tempTax = subTotal * 0.1;
+    const tax = parseFloat(tempTax.toFixed(2))
+    const total = subTotal + tax 
+    
+    this.setState(()=> {
+      return {
+        cartSubTotal:subTotal,
+        cartTax:tax,
+        cartTotal:total
+      }
+    })
+    console.log(subTotal, tax, total)
   }
 
   render() {
