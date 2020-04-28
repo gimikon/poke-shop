@@ -10,6 +10,7 @@ class PokemonProvider extends Component {
     pokemonInCart: [],
     pokemonData: [],
     id:null,
+    inCartValue:false,
     cartSubTotal: 0,
     cartSubTax: 0,
     cartTotal: 0,

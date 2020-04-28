@@ -8,6 +8,10 @@ import axios from "axios";
 import { PokemonConsumer } from "../context";
 
 export default class PokemonList extends Component {
+
+  state = {
+    pokemons:[]
+  }
   render() {
     return (
       <React.Fragment>
