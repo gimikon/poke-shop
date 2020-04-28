@@ -9,22 +9,22 @@ class PokemonProvider extends Component {
   state = {
     pokemonInCart: [],
     pokemonData: [],
-    id:null,
-    inCartValue:false,
+    id: null,
+    inCartValue: false,
     cartSubTotal: 0,
     cartSubTax: 0,
     cartTotal: 0,
-    
   };
 
   async componentDidMount() {
     const url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=300";
     const res = await axios.get(url);
-    const pokemonIndex = url.split("/")[url.split("/").length - 2]; 
-    const id = parseInt(pokemonIndex)
+    const pokemonIndex = url.split("/")[url.split("/").length - 2];
+    const id = parseInt(pokemonIndex);
     this.setState({ pokemonData: res.data["results"] });
+
     // console.log(this.state.pokemon);
-    this.setState({id:id})
+    this.setState({ id: id });
   }
 
   getItem = (id) => {
@@ -32,16 +32,9 @@ class PokemonProvider extends Component {
     return pokemon;
   };
 
-
   addToCart = (pokemon) => {
     this.setState({ pokemonInCart: [...this.state.pokemonInCart, pokemon] });
-    console.log(pokemon);
-    this.setState(
-      () =>  {
-      this.addTotals();
-    }
-  );
-};
+  };
 
   increment = (id) => {
     console.log("this is just increment");
@@ -51,17 +44,17 @@ class PokemonProvider extends Component {
   };
 
   removeItem = (id) => {
-    this.setState({})
+    this.setState({});
   };
 
   clearCart = () => {
-    this.setState(()=> {
-      return {pokemonInCart:[]}
-    })
+    this.setState(() => {
+      return { pokemonInCart: [] };
+    });
   };
 
   addTotals = () => {
-    let subTotal = 0
+    let subTotal = 0;
     this.state.pokemonInCart.map((item) => (subTotal += item.price));
     const tempTax = subTotal * 0.1;
     const tax = parseFloat(tempTax.toFixed(2));
@@ -77,8 +70,6 @@ class PokemonProvider extends Component {
     console.log(subTotal, tax, total);
   };
 
- 
-
   render() {
     return (
       <PokemonContext.Provider
@@ -89,6 +80,7 @@ class PokemonProvider extends Component {
           decrement: this.decrement,
           removeItem: this.removeItem,
           clearCart: this.clearCart,
+          addTotals: this.addTotals,
         }}
       >
         {this.props.children}

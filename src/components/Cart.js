@@ -5,7 +5,22 @@ import EmptyCart from "./EmptyCart";
 import CartList from './CartList'
 import CartTotals from './CartTotals'
 
+
+
 export default class Cart extends Component {
+
+// static context = PokemonConsumer
+
+
+
+    componentDidMount() {
+      let value = this.context;
+      value.addTotals();
+      
+    }
+  
+
+  
 
 
   render() {
@@ -33,3 +48,5 @@ export default class Cart extends Component {
     );
   }
 }
+
+Cart.contextType = PokemonConsumer;

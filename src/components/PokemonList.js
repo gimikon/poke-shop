@@ -9,9 +9,16 @@ import { PokemonConsumer } from "../context";
 
 export default class PokemonList extends Component {
 
-  state = {
-    pokemons:[]
-  }
+ inCart(pokemon, cart) {
+  let inCart = false;
+  cart.forEach((p) => {
+    if(p.name === pokemon.name){
+      inCart = true;
+    }
+  })
+  return inCart
+ }
+
   render() {
     return (
       <React.Fragment>
@@ -22,9 +29,10 @@ export default class PokemonList extends Component {
                 <div className="row">
                 {value.pokemonData.map((item) => {
                   return <Pokemon 
-                  key={item.id}
+                  key={item.name}
                   name={item.name}
-                  url={item.url}/>
+                  url={item.url}
+                  inCart={this.inCart(item, value.pokemonInCart)}/>
                 })}
                 </div>
               </div>

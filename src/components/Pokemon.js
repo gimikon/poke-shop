@@ -36,25 +36,23 @@ export default class Pokemon extends Component {
       inCart: false,
       price: 0,
       modalOpen: false,
-      id:'',
-      total:0,
-      count:0,
+      id: "",
+      total: 0,
+      count: 0,
     };
   }
 
   componentDidMount() {
     const { name, url } = this.props;
-    const pokemonIndex = url.split("/")[url.split("/").length - 2]; 
+    const pokemonIndex = url.split("/")[url.split("/").length - 2];
     const imageUrl = `https://pokeres.bastionbot.org/images/pokemon/${pokemonIndex}.png`;
-    
 
     this.setState({
       name: name,
       imageUrl: imageUrl,
       pokemonIndex: pokemonIndex,
       price: parseInt(pokemonIndex) * 2,
-      id:parseInt(pokemonIndex),
-      
+      id: parseInt(pokemonIndex),
     });
   }
 
@@ -73,8 +71,6 @@ export default class Pokemon extends Component {
   closeModal = () => {
     this.setState({ modalOpen: false });
   };
-
- 
 
   render() {
     return (
@@ -97,7 +93,7 @@ export default class Pokemon extends Component {
               {this.state.name}{" "}
               <Link to={`details/${this.state.pokemonIndex}`}>
                 <span style={{ color: "gray" }}>
-                <i class="fas fa-info-circle"></i>
+                  <i className="fas fa-info-circle"></i>
                 </span>
               </Link>
             </h6>
@@ -108,31 +104,35 @@ export default class Pokemon extends Component {
                 className="pb-3 d-flex justify-content-center"
                 style={{ backgroundColor: "white" }}
               >
-                {this.state.inCart ? (
-                  <button className="btn btn-secondary">In cart</button>
-                ) : (
-                  <button
-                    
-                    onClick={() => {
-                      this.handleSubmit();
-                      value.addToCart({
-                        ...this.state,
-                        inCart: !this.state.inCart,
-                      });
-                    }}
-                    className="cart-btn"
-                    style={{
-                      backgroundColor: "#FBD003",
-                      color: "white",
-                      borderRadius: "4px",
-                      outline: "none",
-                      paddingRight:'12px',
-                      paddingLeft:'12px',
-                    }}
-                  >
-                    <i className="fas fa-cart-plus" />
-                  </button>
-                )}
+              
+                {this.props.inCart ? (<button
+                  className="btn btn-secondary"
+              
+                >
+                  In cart
+                </button>):(  <button
+                  onClick={() => {
+                    this.handleSubmit();
+                    value.addToCart({
+                      ...this.state,
+                      inCart: !this.state.inCart,
+                    });
+                  }}
+                  className="cart-btn"
+                  style={{
+                    backgroundColor: "#FBD003",
+                    color: "white",
+                    borderRadius: "4px",
+                    outline: "none",
+                    paddingRight: "12px",
+                    paddingLeft: "12px",
+                  }}
+                >
+                  <i className="fas fa-cart-plus" />
+                </button>) 
+                }
+          
+               
                 {this.state.modalOpen ? (
                   <Modal
                     img={this.state.imageUrl}
