@@ -52,11 +52,16 @@ class PokemonProvider extends Component {
     let tempPokemons = [...this.state.pokemonInCart]
     const selectedPokemon = tempPokemons.filter(pokemon => pokemon.id === id);
     selectedPokemon[0].count = selectedPokemon[0].count - 1;
+    if(selectedPokemon[0].count === 0) {
+      this.removeItem(id);
+    } else {
     selectedPokemon[0].total = selectedPokemon[0].count * selectedPokemon[0].price
     this.setState(()=> {return {pokemonInCart:[...tempPokemons]}}, ()=> {this.addTotals()})
+
+    }
+    
   };
 
-  
 
   removeItem = (id) => {
     let tempPokemons = [...this.state.pokemonInCart]
