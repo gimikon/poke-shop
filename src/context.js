@@ -23,8 +23,7 @@ class PokemonProvider extends Component {
     const id = parseInt(pokemonIndex);
     this.setState({ pokemonData: res.data["results"] });
 
-    // console.log(this.state.pokemon);
-    this.setState({ id: id });
+    
   }
 
   getItem = (id) => {
@@ -33,12 +32,11 @@ class PokemonProvider extends Component {
   };
 
   addToCart = (pokemon) => {
-    this.setState({ pokemonInCart: [...this.state.pokemonInCart, pokemon] });
-    console.log("from add to cart", pokemon);
+    this.setState({ pokemonInCart: [...this.state.pokemonInCart, pokemon] });    
     this.setState(
-      () => {
-        this.addTotals();
-      }
+      // () => {
+      //   this.addTotals();
+      // }
     )
   };
 
@@ -51,13 +49,35 @@ class PokemonProvider extends Component {
     this.setState(()=> {return {pokemonInCart:[...tempPokemons]}}, ()=> {this.addTotals()})
   };
 
-  decrement = () => {
+  decrement = (id) => {
+  };
+
+  removeItem = (id) => {
+    let tempPokemons = [...this.state.pokemonInCart]
+    let tempCart = [...this.state.pokemonInCart]
+    tempCart = tempCart.filter(item => item.id !== id);
+    const index = tempPokemons.indexOf(this.getItem(id))
+    let removePokemon = tempPokemons[index]
+    removePokemon.inCart = false;
+    removePokemon.total = 0;
+    removePokemon.count = 0;
+    this.setState(()=> {
+      return{pokemonInCart:[...tempCart],
+      }
+    }, () => {
+      this.addTotals();
+    })
   };
 
   clearCart = () => {
     this.setState(() => {
       return { pokemonInCart: [] };
     });
+    this.setState(()=> {
+      return { cartSubTotal: 0,
+        cartTax: 0,
+        cartTotal: 0,}
+    })
   };
 
   addTotals = () => {
