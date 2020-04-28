@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
-export const ButtonContainer = styled.button`
-  font-size: 1.4rem;
-  background-color: transparent;
-  border: none;
-  transition: all 0.5s ease-in-out;
-  &:hover {
-    background-color: green;
-    color: var(--mainblue);
-  }
-  &:focus {
-    outline: none;
-  }
+
+export const Button = styled.button`
+background:transparent;
+border:none;
+cursor:pointer;
+color:white;
+transition:all 0.4s ease-in-out;
+&:hover{
+  color:gray;
+}
+&:focus{
+  outline:none;
+}
 `;

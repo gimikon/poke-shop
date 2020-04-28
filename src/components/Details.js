@@ -136,10 +136,6 @@ export default class Details extends Component {
       const eggGroups = res.data["egg_groups"]
         .map((group) => {
           return group.name
-            .toLowerCase()
-            .split(" ")
-            .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-            .join(" ");
         })
         .join(", ");
 
@@ -181,7 +177,7 @@ export default class Details extends Component {
             <div className="row">
               <div className="col-5">
                 
-                  <span>No.{this.state.pokemonIndex}</span>
+                  <span>$ {this.state.height}</span>
                   
                 
               </div>
@@ -355,7 +351,7 @@ export default class Details extends Component {
             </div>
             <div className="row mt-1">
               <div className="col">
-                <p className="">{this.state.description}</p>
+                <p className="" style={{float:'right', marginRight:'2rem'}}>{this.state.description}</p>
               </div>
             </div>
           </div>
@@ -365,12 +361,7 @@ export default class Details extends Component {
             <div className="row">
               <div className="col-md-6">
                 <div className="row">
-                  <div className="col-6">
-                    <h6 className="float-right">Height:</h6>
-                  </div>
-                  <div className="col-6">
-                    <h6 className="float-left">{this.state.height} cm</h6>
-                  </div>
+                  
                   <div className="col-6">
                     <h6 className="float-right">Weight:</h6>
                   </div>
