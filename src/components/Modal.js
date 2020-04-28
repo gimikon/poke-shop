@@ -20,7 +20,7 @@ export default class Modal extends Component {
               <p>$ {this.props.price}</p>
               <img src={this.props.img} className="img-fluid" style={{width:"10em", height:"10em"}}/>
               
-              <button onClick={this.props.closeModal} style={{display:'block', margin:"0 auto", color:'white', backgroundColor:'orange', borderRadius:"2rem", marginTop:"px"}}>Back to Store</button>
+              <button onClick={this.props.closeModal} style={{display:'block', margin:"0 auto", color:'white', backgroundColor:'orange', borderRadius:"2rem", marginTop:"10px"}}>Back to Store</button>
              
             </div>
           </div>
