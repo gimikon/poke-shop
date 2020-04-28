@@ -38,7 +38,7 @@ export default class Pokemon extends Component {
       modalOpen: false,
       id: "",
       total: 0,
-      count: 0,
+      count: 1,
     };
   }
 
@@ -53,6 +53,7 @@ export default class Pokemon extends Component {
       pokemonIndex: pokemonIndex,
       price: parseInt(pokemonIndex) * 2,
       id: parseInt(pokemonIndex),
+      total:parseInt(pokemonIndex) * 2,
     });
   }
 

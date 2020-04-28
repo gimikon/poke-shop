@@ -12,7 +12,7 @@ class PokemonProvider extends Component {
     id: null,
     inCartValue: false,
     cartSubTotal: 0,
-    cartSubTax: 0,
+    cartTax: 0,
     cartTotal: 0,
   };
 
@@ -28,23 +28,30 @@ class PokemonProvider extends Component {
   }
 
   getItem = (id) => {
-    const pokemon = this.state.pokemonData.find((item) => item.id === id);
+    const pokemon = this.state.pokemonInCart.find((item) => item.id === id);
     return pokemon;
   };
 
   addToCart = (pokemon) => {
     this.setState({ pokemonInCart: [...this.state.pokemonInCart, pokemon] });
+    console.log("from add to cart", pokemon);
+    this.setState(
+      () => {
+        this.addTotals();
+      }
+    )
   };
 
   increment = (id) => {
-    console.log("this is just increment");
-  };
-  decrement = (id) => {
-    console.log("this is just decrement");
+    let tempPokemons = [...this.state.pokemonInCart]
+    const selectedPokemon = tempPokemons.filter(pokemon => pokemon.id === id)
+    selectedPokemon[0].count = selectedPokemon[0].count + 1;
+    selectedPokemon[0].total = selectedPokemon[0].count * selectedPokemon[0].price
+    console.log(selectedPokemon[0].total)
+    this.setState(()=> {return {pokemonInCart:[...tempPokemons]}}, ()=> {this.addTotals()})
   };
 
-  removeItem = (id) => {
-    this.setState({});
+  decrement = () => {
   };
 
   clearCart = () => {
@@ -55,19 +62,17 @@ class PokemonProvider extends Component {
 
   addTotals = () => {
     let subTotal = 0;
-    this.state.pokemonInCart.map((item) => (subTotal += item.price));
+    this.state.pokemonInCart.map((item) => (subTotal += item.total));
     const tempTax = subTotal * 0.1;
     const tax = parseFloat(tempTax.toFixed(2));
     const total = subTotal + tax;
-
     this.setState(() => {
       return {
         cartSubTotal: subTotal,
-        cartSubTax: tax,
+        cartTax: tax,
         cartTotal: total,
       };
     });
-    console.log(subTotal, tax, total);
   };
 
   render() {

@@ -13,16 +13,14 @@ export default class Cart extends Component {
 
 
 
-    componentDidMount() {
-      let value = this.context;
-      value.addTotals();
-      
-    }
+    // componentDidUpdate() {
+    //   let value = this.context;
+    //   value.addTotals();
+    // }
+    
   
 
   
-
-
   render() {
     return (
       <section>
@@ -49,4 +47,4 @@ export default class Cart extends Component {
   }
 }
 
-Cart.contextType = PokemonConsumer;
+// Cart.contextType = PokemonConsumer;

@@ -1,4 +1,5 @@
 import React from "react";
+import { PokemonConsumer } from "../context";
 
 export default function CartItem({ item, value }) {
   const { id, name, imageUrl, price, total, count } = item;
@@ -43,8 +44,10 @@ export default function CartItem({ item, value }) {
       </div>
 
       <div className="col-10 mx-auto col-lg-2 pt-4">
-        <strong>Pokemon Total : $ {price}</strong>
+        <strong>Pokemon Total : $ {total}</strong>
       </div>
     </div>
   );
 }
+
+CartItem.contextType = PokemonConsumer;
