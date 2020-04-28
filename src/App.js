@@ -8,6 +8,8 @@ import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Default from "./components/Default";
 import Home from "./components/Home";
+import Success from "./components/Success";
+import test from "./pages/test";
 
 class App extends Component {
   render() {
@@ -19,6 +21,8 @@ class App extends Component {
           <Route exact path="/pokemons" component={PokemonList} />
           <Route path="/details/:pokemonIndex" component={Details} />
           <Route path="/cart" component={Cart} />
+          <Route exact path="/test" component={test} />
+          <Route exact path="/success" component={Success} />
           <Route component={Default} />
         </Switch>
       </React.Fragment>

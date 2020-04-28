@@ -49,7 +49,7 @@ export default class Details extends Component {
     genderRatioFemale: "",
     evs: "",
     themeColor: "#EF5350",
-    inCart:false
+    inCart: false,
   };
 
   async componentDidMount() {
@@ -91,14 +91,13 @@ export default class Details extends Component {
       }
     });
 
-   
-    const height = pokemonRes.data.height
-    const weight =pokemonRes.data.weight
+    const height = pokemonRes.data.height;
+    const weight = pokemonRes.data.weight;
     const types = pokemonRes.data.types.map((type) => type.type.name);
     const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
     const abilities = pokemonRes.data.abilities
       .map((ability) => {
-        return ability.ability.name
+        return ability.ability.name;
       })
       .join(", ");
 
@@ -135,7 +134,7 @@ export default class Details extends Component {
 
       const eggGroups = res.data["egg_groups"]
         .map((group) => {
-          return group.name
+          return group.name;
         })
         .join(", ");
 
@@ -171,38 +170,34 @@ export default class Details extends Component {
 
   render() {
     return (
+      <React.Fragment>
+      <Link to="/pokemons">
+      <p style={{marginLeft:'2rem'}}>Go Back</p>
+       
+  
+    </Link>
       <div className="col text-capitalize">
         <div className="card">
-          <div className="card-header">
-            <div className="row">
-              <div className="col-5">
-                
-                  <span>$ {this.state.height}</span>
-                  
-                
-              </div>
-              <div className="col-7">
-                <div className="float-right">
-                  {this.state.types.map((type) => (
-                    <span
-                      key={type}
-                      className="badge badge-pill mr-1"
-                      style={{
-                        backgroundColor: `#${TYPE_COLORS[type]}`,
-                        color: "white",
-                      }}
-                    >
-                      {type
-                        .toLowerCase()
-                        .split(" ")
-                        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-                        .join(" ")}
-                    </span>
-                  ))}
-                </div>
+          <div className="row">
+            <div className="col-5"></div>
+            <div className="col-7">
+              <div className="float-right">
+                {this.state.types.map((type) => (
+                  <span
+                    key={type}
+                    className="badge badge-pill mr-1"
+                    style={{
+                      backgroundColor: `#${TYPE_COLORS[type]}`,
+                      color: "white",
+                    }}
+                  >
+                    {type}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
+
           <div className="card-body">
             <div className="row align-items-center">
               <div className=" col-md-3 ">
@@ -212,9 +207,7 @@ export default class Details extends Component {
                 />
               </div>
               <div className="col-md-9">
-                <h4 className="mx-auto">
-                  {this.state.name}
-                </h4>
+                <h4 className="mx-auto">{this.state.name}</h4>
                 <div className="row align-items-center">
                   <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
                     HP
@@ -351,7 +344,9 @@ export default class Details extends Component {
             </div>
             <div className="row mt-1">
               <div className="col">
-                <p className="" style={{float:'right', marginRight:'2rem'}}>{this.state.description}</p>
+                <p className="" style={{ float: "right", marginRight: "2rem" }}>
+                  {this.state.description}
+                </p>
               </div>
             </div>
           </div>
@@ -361,7 +356,6 @@ export default class Details extends Component {
             <div className="row">
               <div className="col-md-6">
                 <div className="row">
-                  
                   <div className="col-6">
                     <h6 className="float-right">Weight:</h6>
                   </div>
@@ -434,16 +428,9 @@ export default class Details extends Component {
               </div>
             </div>
           </div>
-          <div class="card-footer">
-            <Link to="/pokemons">
-              <button className="btn btn-secondary float-right">
-               Go Back
-              </button>
-            </Link>
-            
-          </div>
         </div>
       </div>
+      </React.Fragment>
     );
   }
 }

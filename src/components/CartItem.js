@@ -10,18 +10,18 @@ export default function CartItem({ item, value }) {
       <div className="col-10 mx-auto col-lg-2">
         <img
           src={imageUrl}
-          style={{ width: "5rem", height: "5rem" }}
+          style={{ width: "6rem", height: "6rem" }}
           className="img-fluid"
           alt="pokemon"
         />
       </div>
       <div className="col-10 mx-auto col-lg-2 pt-4">
         <span className="d-lg-none">Pokemon :</span>
-        {name}
+      <h4>{name}</h4>  
       </div>
       <div className="col-10 mx-auto col-lg-2 pt-4">
         <span className="d-lg-none">Price$ :</span>
-        ${price}
+        <h4>${price}</h4> 
       </div>
       <div className="col-10 mx-auto col-lg-2 my-lg-0 pt-4">
         <div className="d-flex justify-content-center">
@@ -39,7 +39,7 @@ export default function CartItem({ item, value }) {
       {/*end*/}
       <div className="col-10 mx-auto col-lg-2 pt-4">
         <div  onClick={() => removeItem(id)}>
-          <i className="fas fa-trash" style={{ color: "orange" }}></i>
+          <i className="fas fa-trash fa-2x" style={{ color: "orange", cursor:"pointer" }}></i>
         </div>
       </div>
 
