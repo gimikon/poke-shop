@@ -2,6 +2,7 @@ import React from "react";
 import "./css/Home.css";
 import MultiPlayer from "./MultiPlayer";
 import {Link} from 'react-router-dom'
+import logo from "../pokeball.png";
 
 export default function Home() {
   return (
@@ -9,8 +10,9 @@ export default function Home() {
     <div className="holder">
       <div className="w-35 p-3">
         <div className="shadow-lg p-5 mb-5 bg-white rounded">
-          <h5>Let's start Poké shopping</h5>
-          <br></br>
+          <h5>Let's start Poké shopping <img src={logo} style={{width:'2rem', height:'2rem', display:'inline'}}/></h5>
+         
+          
           <form>
             <label>Email: </label>
             <input type="email" name="email" placeholder="Email" required className="form-control"/>
@@ -31,7 +33,7 @@ export default function Home() {
             </button>
             </Link>
             </div>
-            <p>Fancy Poketrack? (It will get insense..)</p>
+            <p>Fancy Poketrack along shopping?</p>
             <MultiPlayer
         urls={[
           'https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/vvdpydwp/101-opening.mp3',
