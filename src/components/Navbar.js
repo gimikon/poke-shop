@@ -19,7 +19,7 @@ export default class Navbar extends Component {
         <ul className="navbar-nav align-items-center">
           <li className="nav-item ml-5">
             <Link to="/pokemons" className="nav-link">
-              <h3 style={{ lineSpaceing: "3rem", color:'#FBD003', fontWeight:'bold' }}>Poké Shop!</h3>
+              <h3 style={{ lineSpaceing: "2rem", color:'#FBD003', fontWeight:'bold' }}>Poké Shop!</h3>
             </Link>
           </li>
         </ul>
