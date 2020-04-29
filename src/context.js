@@ -17,7 +17,7 @@ class PokemonProvider extends Component {
   };
 
   async componentDidMount() {
-    const url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=300";
+    const url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=500";
     const res = await axios.get(url);
     const pokemonIndex = url.split("/")[url.split("/").length - 2];
     const id = parseInt(pokemonIndex);

@@ -33,7 +33,7 @@ export default class Cart extends Component {
                   
                     <StripeProvider apiKey="pk_test_wwtIbkjfR6nqZsBaM9J3q0Is00bsjUuye9">
                       <Elements>
-                        <CheckoutForm totalCost="10" />
+                        <CheckoutForm totalCost={value.cartTotal} />
                       </Elements>
                     </StripeProvider>
                 
