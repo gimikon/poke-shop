@@ -9,13 +9,12 @@ export default function Home() {
     <div className="holder">
       <div className="w-35 p-3">
         <div className="shadow-lg p-5 mb-5 bg-white rounded">
-          <h5>let's start shopping</h5>
+          <h5>Let's start Poké shopping</h5>
           <br></br>
           <form>
             <label>Email: </label>
-            <input type="email" name="email" placeholder="Email" required />
-            <br></br>
-            <br></br>
+            <input type="email" name="email" placeholder="Email" required className="form-control"/>
+            
 
             <label>Password: </label>
             <input
@@ -23,20 +22,23 @@ export default function Home() {
               name="password"
               placeholder="Password"
               required
+              className="form-control"
             />
           <div className="col text-center">
           <Link to="/pokemons">
-            <button type="sumbit" className="btn btn-success" style={{display:'block'}} >
-              yes
+            <button type="sumbit" className="btn btn-success mt-3 mb-3" style={{display:'block', margin:"0 auto"}} >
+              Yes, I am ready
             </button>
             </Link>
             </div>
-            <p>Fancy Poketrack?</p>
+            <p>Fancy Poketrack? (It will get insense..)</p>
             <MultiPlayer
         urls={[
+          'https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/vvdpydwp/101-opening.mp3',
           'https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/sbgsbuqa/106-the%20road%20to%20viridian%20city%20-%20from%20palette.mp3',
           'https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/xwvbnmtw/110-pokemon%20center.mp3',
           'https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/ijviptkm/120-pokemon%20gym.mp3',
+          'https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/pgfsczhv/128-battle%20%28vs%20gym%20leader%29.mp3'
         ]}
       />
           </form>

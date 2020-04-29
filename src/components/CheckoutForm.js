@@ -39,14 +39,14 @@ function CheckoutForm({ stripe, totalCost }) {
 
   return (
     <form className="CheckoutForm" onSubmit={submit}>
-      <h4>Would you like to complete the purchase?</h4>
+      <h4>Would you like to Poke purchase?</h4>
       <CardElement />
       <button
         className="CheckoutForm-button"
         type="submit"
         disabled={status === 'submitting'}
       >
-        {status === 'submitting' ? 'Submitting' : 'Submit Order'}
+        {status === 'submitting' ? 'Submitting' : 'Poke Order'}
       </button>
       {status === 'error' && (
         <div className="CheckoutForm-error">Something went wrong.</div>
