@@ -128,7 +128,7 @@ export default class Pokemon extends Component {
                     paddingRight: "12px",
                     paddingLeft: "12px",
                   }}
-                >
+                > Add
                   <i className="fas fa-cart-plus" />
                 </button>) 
                 }

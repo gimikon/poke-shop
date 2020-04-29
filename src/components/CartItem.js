@@ -6,7 +6,7 @@ export default function CartItem({ item, value }) {
   const { increment, decrement, removeItem } = value;
 
   return (
-    <div className="row my-2 text-capitalize text-center">
+    <div className="row my-2 text-capitalize text-center" >
       <div className="col-10 mx-auto col-lg-2">
         <img
           src={imageUrl}

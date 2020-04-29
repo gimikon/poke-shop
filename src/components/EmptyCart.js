@@ -8,8 +8,9 @@ export default function EmptyCart() {
     <div className="col-10 mx-auto text-center mb-6">
     <h2>The cart is currently empty</h2>
     <i class="fas fa-shopping-cart fa-5x"></i>
-    <Link to="/pokemons">
-    <button className='btn btn-success' style={{display:'block', margin:"0 auto", marginTop:'2rem'}}>Go Back to Shop</button>
+    <br></br>
+    <Link to="/pokemons" styled={{textDecoration: "none"}}>
+    <button className='btn btn-success' style={{margin:"0 auto", marginTop:'2rem'}}>Go Back to Shop</button>
     </Link>
     </div>
     </div>

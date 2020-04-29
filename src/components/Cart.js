@@ -4,6 +4,7 @@ import Title from "./Title";
 import EmptyCart from "./EmptyCart";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
+import styled from "styled-components";
 
 export default class Cart extends Component {
   // static context = PokemonConsumer
@@ -15,7 +16,7 @@ export default class Cart extends Component {
 
   render() {
     return (
-      <section>
+      <Section>
         <PokemonConsumer>
           {(value) => {
             const { pokemonInCart } = value;
@@ -32,9 +33,14 @@ export default class Cart extends Component {
             }
           }}
         </PokemonConsumer>
-      </section>
+      </Section>
     );
   }
 }
 
 Cart.contextType = PokemonConsumer;
+
+export const Section = styled.section`
+  color: #3f4249;
+ 
+`;
