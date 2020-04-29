@@ -29,9 +29,7 @@ export default function CartTotals({ value }) {
                 Clear Cart
               </button>
             </Link>
-            <Link to="/test">
-            <button className="btn btn-outline-success" style={{marginLeft:"10px"}}>Checkout</button>
-            </Link>
+           
           </div>
         </div>
       </div>

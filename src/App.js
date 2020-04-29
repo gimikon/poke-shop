@@ -10,6 +10,7 @@ import Default from "./components/Default";
 import Home from "./components/Home";
 import Success from "./components/Success";
 import test from "./pages/test";
+import CheckoutForm from "./components/CheckoutForm";
 
 class App extends Component {
   render() {
@@ -21,7 +22,7 @@ class App extends Component {
           <Route exact path="/pokemons" component={PokemonList} />
           <Route path="/details/:pokemonIndex" component={Details} />
           <Route path="/cart" component={Cart} />
-          <Route exact path="/test" component={test} />
+          <Route exact path="/checkout" component={CheckoutForm} />
           <Route exact path="/success" component={Success} />
           <Route component={Default} />
         </Switch>

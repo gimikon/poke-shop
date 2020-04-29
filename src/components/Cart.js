@@ -5,6 +5,10 @@ import EmptyCart from "./EmptyCart";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
 import styled from "styled-components";
+import { Elements, StripeProvider } from 'react-stripe-elements';
+import CheckoutForm from './CheckoutForm';
+
+
 
 export default class Cart extends Component {
   // static context = PokemonConsumer
@@ -26,6 +30,13 @@ export default class Cart extends Component {
                   <Title name="Your" title="Cart" />
                   <CartList value={value} />
                   <CartTotals value={value} />
+                  
+                    <StripeProvider apiKey="pk_test_wwtIbkjfR6nqZsBaM9J3q0Is00bsjUuye9">
+                      <Elements>
+                        <CheckoutForm totalCost="10" />
+                      </Elements>
+                    </StripeProvider>
+                
                 </React.Fragment>
               );
             } else {

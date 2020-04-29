@@ -7,7 +7,7 @@ export default function CartList({value}) {
 
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" >
       {pokemonInCart.map((item) => {
         return <CartItem key={item.id} item={item} value={value}/>
       })}
