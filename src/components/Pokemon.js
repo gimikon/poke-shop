@@ -4,23 +4,24 @@ import { Link } from "react-router-dom";
 import Modal from "./Modal";
 import { PokemonConsumer } from "../context";
 
-const Wrapper = styled.div`
-.card {
-  transition:transform .2s;
-  &:hover{
-  transform: scale(1.1);
-  
-  }
-}
-`;
-
-const PokemonCard = styled.img`
+const Sprite = styled.img`
   width: 10em;
   height: 10em;
-  
 `;
 
-
+const CartButton = styled.button`
+  .cart-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.2rem 0.4rem;
+    background: blue;
+    border: none;
+    color: white;
+    font-size: 1.4em;
+    border-radius: 0.5 0 0 0;
+  }
+`;
 
 export default class Pokemon extends Component {
   constructor() {
@@ -30,8 +31,8 @@ export default class Pokemon extends Component {
       name: "",
       imageUrl: "",
       pokemonIndex: null,
-      imageLoading: true,
       notAvailable: false,
+      imageLoading: true,
       inCart: false,
       price: 0,
       modalOpen: false,
@@ -75,9 +76,8 @@ export default class Pokemon extends Component {
   render() {
     return (
       <div className="col-9 mx-auto col-md-6 col-lg-3 my-4">
-      <Wrapper>
         <div className="card">
-          <PokemonCard
+          <Sprite
             className="card-img-top rounded mx-auto mt-2 pt-3"
             src={this.state.imageUrl}
             onLoad={() => this.setState({ imageLoading: false })}
@@ -129,7 +129,7 @@ export default class Pokemon extends Component {
                     paddingLeft: "12px",
                   }}
                 > Add
-                  <i className="fas fa-cart-plus"/>
+                  <i className="fas fa-cart-plus" />
                 </button>) 
                 }
           
@@ -146,7 +146,6 @@ export default class Pokemon extends Component {
             )}
           </PokemonConsumer>
         </div>
-        </Wrapper>
       </div>
     );
   }

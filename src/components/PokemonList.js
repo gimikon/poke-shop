@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import Pokemon from "./Pokemon";
-import { Link } from "react-router-dom";
-import spinner from "../components/Spinner.gif";
-import Search from "./Search";
 import Cart from "./Cart";
-import axios from "axios";
+
 import { PokemonConsumer } from "../context";
 
 export default class PokemonList extends Component {
@@ -27,6 +24,7 @@ export default class PokemonList extends Component {
             <div className="py-6">
               <div className="container mt-10">
                 <div className="row">
+                
                 {value.pokemonData.map((item) => {
                   return <Pokemon 
                   key={item.name}
