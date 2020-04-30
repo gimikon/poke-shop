@@ -107,7 +107,7 @@ export default class Pokemon extends Component {
               >
               
                 {this.props.inCart ? (<button
-                  className="btn btn-secondary"
+                  className="btn btn-secondary incart"
               
                 >
                   In cart

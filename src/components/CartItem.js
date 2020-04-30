@@ -6,23 +6,23 @@ export default function CartItem({ item, value }) {
   const { increment, decrement, removeItem } = value;
 
   return (
-    <div className="row my-2 text-capitalize text-center" style={{borderBottom:'1px solid #eee'}}>
+    <div className="row my-2 text-capitalize text-center" style={{borderBottom:'1px solid white'}}>
       <div className="col-10 mx-auto col-lg-2">
       
         <img
           src={imageUrl}
-          style={{ width: "6rem", height: "6rem" }}
+          style={{ width: "5rem", height: "5rem" }}
           className="img-fluid"
           alt="pokemon"
         />
       </div>
       <div className="col-10 mx-auto col-lg-2 pt-4">
         <span className="d-lg-none">Pokemon :</span>
-      <h4>{name}</h4>  
+      <h5>{name}</h5>  
       </div>
       <div className="col-10 mx-auto col-lg-2 pt-4">
         <span className="d-lg-none">Price$ :</span>
-        <h4>${price}</h4> 
+        <h5>${price}</h5> 
       </div>
       <div className="col-10 mx-auto col-lg-2 my-lg-0 pt-4">
         <div className="d-flex justify-content-center">
@@ -40,12 +40,12 @@ export default function CartItem({ item, value }) {
       {/*end*/}
       <div className="col-10 mx-auto col-lg-2 pt-4">
         <div  onClick={() => removeItem(id)}>
-          <i className="fas fa-trash fa-2x" style={{ color: "orange", cursor:"pointer" }}></i>
+          <i className="fas fa-trash " style={{ color: "orange", cursor:"pointer" }}></i>
         </div>
       </div>
 
       <div className="col-10 mx-auto col-lg-2 pt-4">
-        <strong>Pokemon Total : $ {total}</strong>
+        <h5><strong>Pokemon Total : $ {total}</strong></h5>
       </div>
     </div>
   );
