@@ -10,7 +10,7 @@ export default function EmptyCart() {
           <h3>Cart Empty</h3>
           
           <br></br>
-          <img src={logo} style={{height:"12rem", width:"20rem"}}/>
+          <img src={logo} style={{height:"12rem", width:"24rem"}}/>
           <br></br>
           <Link to="/pokemons" styled={{ textDecoration: "none" }}>
             <button

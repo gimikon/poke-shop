@@ -19,7 +19,7 @@ export default class PokemonList extends Component {
   render() {
     return (
       <React.Fragment>
-        <Title name="Pokemon Collection"/>
+        <Title name="Pokemon" title="Collection"/>
         <PokemonConsumer>
           {(value) => (
             <div className="py-6">
