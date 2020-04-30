@@ -7,7 +7,7 @@ import { Nav } from 'react-bootstrap';
 export default class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark px-sm-5" style={{backgroundColor:'#184E86'}}>
+      <nav className="navbar navbar-expand-sm navbar-dark px-sm-5" style={{backgroundColor:'#242F3F', marginBottom:'7px'}}>
         <Link to="/">
           <img
             src={logo}

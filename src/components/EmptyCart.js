@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from './imges/pika.gif'
 
 export default function EmptyCart() {
   return (
@@ -7,7 +8,9 @@ export default function EmptyCart() {
       <div className="row">
         <div className="col-10 mx-auto text-center mb-6">
           <h2>The cart is currently empty</h2>
-          <i class="fas fa-shopping-cart fa-5x"></i>
+          
+          <br></br>
+          <img src={logo} style={{height:"12rem", width:"20rem"}}/>
           <br></br>
           <Link to="/pokemons" styled={{ textDecoration: "none" }}>
             <button

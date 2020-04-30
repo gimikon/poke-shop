@@ -32,7 +32,7 @@ export default function Home() {
               <input
                 type="password"
                 name="password"
-                placeholder="Chicken"
+                placeholder="chicken123...?"
                 required
                 className="form-control"
               />
@@ -41,7 +41,7 @@ export default function Home() {
                   <button
                     type="sumbit"
                     className="btn btn-success mt-3 mb-3"
-                    style={{ display: "block", margin: "0 auto" }}
+                    style={{ textDecoration: "none", margin: "0 auto" }}
                   >
                     Pokemon Go
                   </button>
@@ -56,6 +56,8 @@ export default function Home() {
                   "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/ijviptkm/120-pokemon%20gym.mp3",
                   "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/pgfsczhv/128-battle%20%28vs%20gym%20leader%29.mp3",
                   "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/gcgxkwlm/112-viridian%20forest.mp3",
+                  "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/ajylbpgr/119-cerulean%20city%27s%20theme.mp3",
+                  "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/apzszjqg/130-cycling.mp3"
                 ]}
               />
             </form>

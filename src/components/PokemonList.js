@@ -20,6 +20,7 @@ export default class PokemonList extends Component {
     return (
       <React.Fragment>
         <PokemonConsumer>
+        
           {(value) => (
             <div className="py-6">
               <div className="container mt-10">

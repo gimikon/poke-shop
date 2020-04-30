@@ -14,6 +14,7 @@ class PokemonProvider extends Component {
     cartSubTotal: 0,
     cartTax: 0,
     cartTotal: 0,
+    loginName:''
   };
 
   async componentDidMount() {
