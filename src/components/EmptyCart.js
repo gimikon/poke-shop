@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from './imges/pika.gif'
+import Footer from './Footer'
 
 export default function EmptyCart() {
   return (
-    <div className="container mt-5">
+    <React.Fragment>
+    <div className="container mt-5" style={{minHeight:'80vh'}}>
       <div className="row">
         <div className="col-10 mx-auto text-center mb-6">
           <h3>Cart Empty</h3>
@@ -23,5 +25,7 @@ export default function EmptyCart() {
         </div>
       </div>
     </div>
+   
+   </React.Fragment>
   );
 }

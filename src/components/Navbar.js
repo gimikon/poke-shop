@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "./imges/pokeball.png";
 import { ButtonContainer } from "./Button";
 import { Nav } from "react-bootstrap";
-import { home } from "../home.png";
+
 import MultiPlayer from "./MultiPlayer";
 
 export default class Navbar extends Component {

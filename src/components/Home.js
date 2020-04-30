@@ -3,6 +3,7 @@ import "./css/Home.css";
 import { Link } from "react-router-dom";
 import logo from "./imges/pokeball.png";
 import { PokemonConsumer } from "../context";
+import Footer from './Footer'
 
 export default class Home extends Component {
   render() {
@@ -68,17 +69,8 @@ export default class Home extends Component {
                 </div>
               </div>
             </div>
-            <footer className="footer mt-auto py-1 text-center bg-white">
-              <div className="container">
-                {" "}
-                © 2020 General Assembly SEi 36 Final Project{" "}
-                <img
-                  src={logo}
-                  style={{ width: "1rem", height: "1rem", display: "inline" }}
-                />{" "}
-                Yukiko Isogimi{" "}
-              </div>
-            </footer>
+            
+        
           </React.Fragment>
         )}
       </PokemonConsumer>

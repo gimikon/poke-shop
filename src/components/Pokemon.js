@@ -9,19 +9,7 @@ const Sprite = styled.img`
   height: 10em;
 `;
 
-const CartButton = styled.button`
-  .cart-btn {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 0.2rem 0.4rem;
-    background: blue;
-    border: none;
-    color: white;
-    font-size: 1.4em;
-    border-radius: 0.5 0 0 0;
-  }
-`;
+
 
 export default class Pokemon extends Component {
   constructor() {

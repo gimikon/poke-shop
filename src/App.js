@@ -8,8 +8,9 @@ import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Default from "./components/Default";
 import Home from "./components/Home";
-import Success from "./components/Success";
-import test from "./pages/test";
+import Footer from "./components/Footer";
+
+
 import CheckoutForm from "./components/CheckoutForm";
 
 class App extends Component {
@@ -23,9 +24,10 @@ class App extends Component {
           <Route path="/details/:pokemonIndex" component={Details} />
           <Route path="/cart" component={Cart} />
           <Route exact path="/checkout" component={CheckoutForm} />
-          <Route exact path="/success" component={Success} />
+          
           <Route component={Default} />
         </Switch>
+       <Footer/>
       </React.Fragment>
     );
   }
