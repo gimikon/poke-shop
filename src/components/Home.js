@@ -31,7 +31,7 @@ export default class Home extends Component {
                       <input
                         type="name"
                         name="name"
-                        placeholder="Vivian"
+                        placeholder="Name"
                         required
                         className="form-control"
                         onChange={(event) =>
