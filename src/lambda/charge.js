@@ -21,7 +21,7 @@ exports.handler = (event, context, callback) => {
     .create({
       amount: parseInt(data.amount),
       currency: "usd",
-      description: "Dreamcast game shop",
+      description: "poke shop",
       source: data.token,
     })
     .then(({ status }) => {
