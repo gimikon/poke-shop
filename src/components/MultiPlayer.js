@@ -76,7 +76,7 @@ const MultiPlayer = ({ urls }) => {
 const Player = ({ player, toggle }) => (
  
    
-    <button style={{backgroundColor:'transparent', outline:'none', border:'none'}}onClick={toggle}>{player.playing ? <i className="fas fa-ban"></i> : <i className="fas fa-music" style={{color:'orange'}}></i>}</button>
+    <button style={{backgroundColor:'transparent', outline:'none', border:'none'}}onClick={toggle}>{player.playing ? <i className="fas fa-volume-mute"></i> : <i className="fas fa-headphones" style={{color:'orange'}}></i>}</button>
   
 )
 
