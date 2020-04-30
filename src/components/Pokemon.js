@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
 import { PokemonConsumer } from "../context";
-
+import "./css/pokemon.css";
 const Sprite = styled.img`
   width: 10em;
   height: 10em;
@@ -120,14 +120,7 @@ export default class Pokemon extends Component {
                     });
                   }}
                   className="cart-btn"
-                  style={{
-                    backgroundColor: "#FBD003",
-                    color: "white",
-                    borderRadius: "4px",
-                    outline: "none",
-                    paddingRight: "12px",
-                    paddingLeft: "12px",
-                  }}
+                  
                 > Add
                   <i className="fas fa-cart-plus" />
                 </button>) 

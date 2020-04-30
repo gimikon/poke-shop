@@ -1,0 +1,32 @@
+.cart-btn {
+  background-color: #FBD003;
+  transition-property: background-color, color;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+  -webkit-appearance: none;
+  color:white;
+  cursor: pointer;
+  border-radius: 4px;
+  outline-style: none;
+  padding-right:12px;
+  padding-left:12px;
+
+}
+
+.cart-btn:hover,
+.cart-btn:focus {
+  background-color: #FBD003;
+
+}
+
+.cart-btn:hover,
+.cart-btn:focus{
+  outline:0
+}
+
+button:focus {
+  outline:0
+
+}
+
+
