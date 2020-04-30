@@ -9,15 +9,15 @@ export default function CartTotals({ value }) {
         <div className="row">
           <div className="col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-capitalize text-right">
             <h5>
-              <span className="text-title">Subtotal:</span>
+              <span className="text-title">PokéSubTotal:</span>
               <strong>$ {cartSubTotal}</strong>
             </h5>
             <h5>
-              <span className="text-title">Taxtotal:</span>
+              <span className="text-title">PokéTax:</span>
               <strong>$ {cartTax}</strong>
             </h5>
             <h5>
-              <span className="text-title">Total:</span>
+              <span className="text-title">PokéTotal:</span>
               <strong>$ {cartTotal}</strong>
             </h5>
             <Link to="/cart">

@@ -18,29 +18,32 @@ export default class PokemonList extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <Title name="Pokemon" title="Collection"/>
-        <PokemonConsumer>
-          {(value) => (
-            <div className="py-6">
-              <div className="container mt-10">
-                <div className="row">
-                  {value.pokemonData.map((item) => {
-                    return (
-                      <Pokemon
-                        key={item.name}
-                        name={item.name}
-                        url={item.url}
-                        inCart={this.inCart(item, value.pokemonInCart)}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
+     
+      <PokemonConsumer>
+      {(value) => ( 
+        <React.Fragment>
+        <Title name="Hello!" title={value.loginName}/>
+        <div className="py-6">
+          <div className="container mt-10">
+            <div className="row">
+              {value.pokemonData.map((item) => {
+                return (
+                  <Pokemon
+                    key={item.name}
+                    name={item.name}
+                    url={item.url}
+                    inCart={this.inCart(item, value.pokemonInCart)}
+                  />
+                );
+              })}
             </div>
+          </div>
+        </div>
+        </React.Fragment>
           )}
+          
         </PokemonConsumer>
-      </React.Fragment>
+      
     );
   }
 }

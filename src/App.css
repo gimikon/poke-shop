@@ -13,11 +13,6 @@ body {
   color: var(--mainDark) !important;
 }
 
-.text-title {
-  
-  letter-spacing: 0.3rem;
-}
-
 .btn-black {
   background:transparent;
   text-transform: capitalize;

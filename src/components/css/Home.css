@@ -1,10 +1,10 @@
 
 .holder {
-  background-image: url(./pikachu.jpg);
+  background-image: url(../imges/pikachu.jpg);
 
   /* background-repeat: no-repeat; */
   /* background-position: center; */
-  min-height: 86vh;
+  min-height: 84vh;
   width: 100%;
   display: flex;
   align-items: center;

@@ -1,5 +1,5 @@
 import React from "react";
-import pokeball from '../pokeball.png'
+import pokeball from './imges/pokeball.png'
 
 export default function Title(props) {
   return (

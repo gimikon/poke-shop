@@ -27,7 +27,7 @@ export default class Cart extends Component {
             if (pokemonInCart.length > 0) {
               return (
                 <React.Fragment>
-                  <Title name="Your" title="Cart" />
+                  <Title name={value.loginName} title='Cart' />
                   <CartList value={value} />
                   <CartTotals value={value} />
                   

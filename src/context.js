@@ -107,6 +107,10 @@ class PokemonProvider extends Component {
     });
   };
 
+  updateValue = (name) => {
+    this.setState({loginName:name})
+  }
+
   render() {
     return (
       <PokemonContext.Provider
@@ -118,6 +122,7 @@ class PokemonProvider extends Component {
           removeItem: this.removeItem,
           clearCart: this.clearCart,
           addTotals: this.addTotals,
+          updateValue:this.updateValue
         }}
       >
         {this.props.children}
