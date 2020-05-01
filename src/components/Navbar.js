@@ -41,10 +41,8 @@ export default class Navbar extends Component {
                 
                 "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/sbgsbuqa/106-the%20road%20to%20viridian%20city%20-%20from%20palette.mp3",
                 "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/xwvbnmtw/110-pokemon%20center.mp3",
-                "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/jucncspp/115-battle%20%28vs%20trainer%29.mp3",
-                
-              
                 "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/apzszjqg/130-cycling.mp3",
+                "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/jucncspp/115-battle%20%28vs%20trainer%29.mp3"
               ]}
             />
           </li>
