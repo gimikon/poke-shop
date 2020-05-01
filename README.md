@@ -5,7 +5,7 @@ Final Project of Software Engineering Immersive Course SEI36.
 
  ### Description
  It is like Online-Shopping site..(except you get to buy all variety of Pokemons !! )
- You can enjoy your pokemon shopping experience by logining with your name to start adding your favorite pokemon into your cart also during your shopping you can play your favorite old pokemon sound track by clicking headphones icon on top of nav bar. 
+ You can enjoy your pokemon shopping experience simply by logining with your name and start adding your favorite pokemon into your cart. Also during your shopping you can play your favorite old pokemon sound track by clicking headphones icon on top of nav bar.
  At the end of your shopping, you can checkout and make payment with your card.(Please do not enter your credit card number as this site is only educational purpose.You can enter 4242424242424242424242424242 to do mock payment)
 
  ![](test.gif)
