@@ -21,7 +21,7 @@ In this project, instead of my old way of passing props(data) between parent and
 ### Wanted feature
 I would like to implement a way that users can stay on the same page where they are looking at each item since they are redirected to top of the page when they go see each pokemon description.
 
-Also, this project was all based on Front end, it would be nice to have Back end and where purchase history can be saved in database so that users can go look at what they have bought in the pase.
+Also, this project was all based on Front end, it would be nice to have Back end and where purchase history can be saved in database so that users can go look at what they have bought in the past.
 
 
 
