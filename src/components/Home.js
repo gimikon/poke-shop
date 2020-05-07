@@ -28,7 +28,7 @@ export default class Home extends Component {
                     </h5>
 
                     <form>
-                      <label>Name: </label>
+                      <label>What is your name? </label>
                       <input
                         type="name"
                         name="name"
@@ -38,15 +38,6 @@ export default class Home extends Component {
                         onChange={(event) =>
                           value.updateValue(event.target.value)
                         }
-                      />
-
-                      <label>Password: </label>
-                      <input
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        required
-                        className="form-control"
                       />
                       <div className="col text-center">
                         <Link to="/pokemons">

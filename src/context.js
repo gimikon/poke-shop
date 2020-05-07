@@ -14,7 +14,8 @@ class PokemonProvider extends Component {
     cartSubTotal: 0,
     cartTax: 0,
     cartTotal: 0,
-    loginName:''
+    loginName: "",
+    
   };
 
   async componentDidMount() {
@@ -23,8 +24,6 @@ class PokemonProvider extends Component {
     const pokemonIndex = url.split("/")[url.split("/").length - 2];
     const id = parseInt(pokemonIndex);
     this.setState({ pokemonData: res.data["results"] });
-
-    
   }
 
   getItem = (id) => {
@@ -33,63 +32,72 @@ class PokemonProvider extends Component {
   };
 
   addToCart = (pokemon) => {
-    this.setState({ pokemonInCart: [...this.state.pokemonInCart, pokemon] });    
-    this.setState(
-      // () => {
-      //   this.addTotals();
-      // }
-    )
+    this.setState({ pokemonInCart: [...this.state.pokemonInCart, pokemon] });
+    this.setState();
   };
 
   increment = (id) => {
-    let tempPokemons = [...this.state.pokemonInCart]
-    const selectedPokemon = tempPokemons.filter(pokemon => pokemon.id === id)
+    let tempPokemons = [...this.state.pokemonInCart];
+    const selectedPokemon = tempPokemons.filter((pokemon) => pokemon.id === id);
     selectedPokemon[0].count = selectedPokemon[0].count + 1;
-    selectedPokemon[0].total = selectedPokemon[0].count * selectedPokemon[0].price
-    this.setState(()=> {return {pokemonInCart:[...tempPokemons]}}, ()=> {this.addTotals()})
+    selectedPokemon[0].total =
+      selectedPokemon[0].count * selectedPokemon[0].price;
+    this.setState(
+      () => {
+        return { pokemonInCart: [...tempPokemons] };
+      },
+      () => {
+        this.addTotals();
+      }
+    );
   };
 
   decrement = (id) => {
-    let tempPokemons = [...this.state.pokemonInCart]
-    const selectedPokemon = tempPokemons.filter(pokemon => pokemon.id === id);
+    let tempPokemons = [...this.state.pokemonInCart];
+    const selectedPokemon = tempPokemons.filter((pokemon) => pokemon.id === id);
     selectedPokemon[0].count = selectedPokemon[0].count - 1;
-    if(selectedPokemon[0].count === 0) {
+    if (selectedPokemon[0].count === 0) {
       this.removeItem(id);
     } else {
-    selectedPokemon[0].total = selectedPokemon[0].count * selectedPokemon[0].price
-    this.setState(()=> {return {pokemonInCart:[...tempPokemons]}}, ()=> {this.addTotals()})
-
+      selectedPokemon[0].total =
+        selectedPokemon[0].count * selectedPokemon[0].price;
+      this.setState(
+        () => {
+          return { pokemonInCart: [...tempPokemons] };
+        },
+        () => {
+          this.addTotals();
+        }
+      );
     }
-    
   };
 
-
   removeItem = (id) => {
-    let tempPokemons = [...this.state.pokemonInCart]
-    let tempCart = [...this.state.pokemonInCart]
-    tempCart = tempCart.filter(item => item.id !== id);
-    const index = tempPokemons.indexOf(this.getItem(id))
-    let removePokemon = tempPokemons[index]
+    let tempPokemons = [...this.state.pokemonInCart];
+    let tempCart = [...this.state.pokemonInCart];
+    tempCart = tempCart.filter((item) => item.id !== id);
+    const index = tempPokemons.indexOf(this.getItem(id));
+    let removePokemon = tempPokemons[index];
     removePokemon.inCart = false;
     removePokemon.total = 0;
     removePokemon.count = 0;
-    this.setState(()=> {
-      return{pokemonInCart:[...tempCart],
+    this.setState(
+      () => {
+        return { pokemonInCart: [...tempCart] };
+      },
+      () => {
+        this.addTotals();
       }
-    }, () => {
-      this.addTotals();
-    })
+    );
   };
 
   clearCart = () => {
     this.setState(() => {
       return { pokemonInCart: [] };
     });
-    this.setState(()=> {
-      return { cartSubTotal: 0,
-        cartTax: 0,
-        cartTotal: 0,}
-    })
+    this.setState(() => {
+      return { cartSubTotal: 0, cartTax: 0, cartTotal: 0 };
+    });
   };
 
   addTotals = () => {
@@ -107,9 +115,9 @@ class PokemonProvider extends Component {
     });
   };
 
-  updateValue = (name) => {
-    this.setState({loginName:name})
-  }
+  updateValue = (name, mood) => {
+    this.setState({ loginName: name});
+  };
 
   render() {
     return (
@@ -122,7 +130,7 @@ class PokemonProvider extends Component {
           removeItem: this.removeItem,
           clearCart: this.clearCart,
           addTotals: this.addTotals,
-          updateValue:this.updateValue
+          updateValue: this.updateValue,
         }}
       >
         {this.props.children}
