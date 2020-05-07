@@ -16,12 +16,12 @@ React, bootstraps,Stripe
 
 ### The lesson I learned
 In my opinion, React is all about props and state.
-In this project, instead of my old way of passing props(data) between parent and child components, I used Context API and this was Game changer for me. You can only refer to one place to pull data and update such as pokemon image, your login name and so on. It gave me a lot of flexsibilities. However it was not easy to update state in context at first and I had tons of troubles as I was not used to use this context API. With time and lots of help, it all made a lot sense to me and I learned so much how to pass props with it. I used Stripe for users to be able to make payment at the end of shopping, this needs a bit of tricks as the tutorial I was referring to was meant for certain version of stripe and thanksfully Aleks and Joel were with me throughout the entire journey for this payament feature to happen!(Thank you!)
+In this project, instead of my old way of passing props(data) between parent and child components, I used Context API and this was Game changer for me. You can only refer to one place to pull data and update such as pokemon image, your login name and so on. It gave me a lot of flexsibilities. However it was not easy to update state in context at first and I had tons of troubles as I was not used to using this context API. With time and lots of help, it all made a lot sense to me and I learned so much how to pass props with it. I used Stripe for users to be able to make payment at the end of shopping, this needs a bit of tricks as the tutorial I was referring to was meant for certain version of stripe and thanksfully Aleks and Joel were with me throughout the entire journey for this payament feature to happen!(Thank you!)
 
 ### Wanted feature
 I would like to implement a way that users can stay on the same page where they are looking at each item since they are redirected to top of the page when they go see each pokemon description.
 
-Also, this project was all based on Front end, it would be nice to have Back end and where purchase history can be saved in database so that users can go look at what they have bought in the pase.
+Also, this project was all based on Front end, it would be nice to have Back end and where purchase history can be saved in database so that users can go look at what they have bought in the past.
 
 
 
