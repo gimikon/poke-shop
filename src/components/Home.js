@@ -59,18 +59,19 @@ export default class Home extends Component {
                           </button>
                         </Link>
                       </div>
-                      <p style={{ textAlign: "center" }}>Fancy Pokétrack? Click!
-                      <span style={{marginLeft:'4px'}}>
-                      <i 
-                      className="fa fa-headphones"></i></span></p>
-                      
+                      <p style={{ textAlign: "center" }}>
+                        Fancy Pokétrack? Click!
+                        <span style={{ marginLeft: "4px" }}>
+                          <i className="fa fa-headphones"></i>
+                        </span>
+                      </p>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
-            
-        
+
+            <Footer />
           </React.Fragment>
         )}
       </PokemonConsumer>

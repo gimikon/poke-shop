@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from './imges/pika.gif'
-import Footer from './Footer'
+// import Footer from './Footer'
 
 export default function EmptyCart() {
   return (

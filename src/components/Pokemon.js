@@ -46,9 +46,6 @@ export default class Pokemon extends Component {
   }
 
   handleSubmit = () => {
-    this.setState((value) => {
-      return { ...value, inCart: true };
-    });
     const pokemonData = this.state;
     this.openModal();
   };

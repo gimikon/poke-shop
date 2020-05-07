@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "./imges/pokeball.png";
-import { ButtonContainer } from "./Button";
+
 import { Nav } from "react-bootstrap";
 
 import MultiPlayer from "./MultiPlayer";
