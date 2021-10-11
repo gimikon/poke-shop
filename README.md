@@ -1,4 +1,4 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #3: Poké Shop!
+# Project #3: Poké Shop!
 # Overview
 Final Project of Software Engineering Immersive Course SEI36.
  - Demo Link:https://hello-pokemon.netlify.app/#/
