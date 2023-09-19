@@ -39,10 +39,10 @@ export default class Navbar extends Component {
             <MultiPlayer
               urls={[
                 
-                "https://downloads.khinsider.com/game-soundtracks/album/pokemon-pocket-monsters-sound-anime-collection/01%2520Aim%2520to%2520Be%2520a%2520Pok%25C3%25A9mon%2520Master.mp3",
-                "https://downloads.khinsider.com/game-soundtracks/album/pokemon-pocket-monsters-sound-anime-collection/02%2520Pok%25C3%25A9mon%252C%2520I%2520Choose%2520You%2521.mp3",
-                "https://downloads.khinsider.com/game-soundtracks/album/pokemon-pocket-monsters-sound-anime-collection/03%2520Setting%2520Off.mp3",
-                "https://downloads.khinsider.com/game-soundtracks/album/pokemon-pocket-monsters-sound-anime-collection/22%2520Pok%25C3%25A9mon%2520Battle%2521.mp3"
+                "https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/01%20Opening%20%28part%201%29.mp3",
+                "https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/01%20Opening%20%28part%201%29.mp3",
+                "https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/01%20Opening%20%28part%201%29.mp3",
+                "https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/01%20Opening%20%28part%201%29.mp3"
               ]}
             />
           </li>
