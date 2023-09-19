@@ -57,7 +57,7 @@ export default class Details extends Component {
 
     // Urls for pokemon information
     const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}/`;
-    const image = `https://pokeres.bastionbot.org/images/pokemon/${pokemonIndex}.png`;
+    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonIndex}.png`;
     const pokemonSpeciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`;
 
     // Get Pokemon Information
