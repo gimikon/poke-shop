@@ -34,7 +34,7 @@ export default class Pokemon extends Component {
     const { name, url } = this.props;
     const pokemonIndex = url.split("/")[url.split("/").length - 2];
     const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonIndex}.png`;
-    #`https://pokeres.bastionbot.org/images/pokemon/${pokemonIndex}.png`;
+  
 
     this.setState({
       name: name,
