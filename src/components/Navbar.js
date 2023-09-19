@@ -39,10 +39,10 @@ export default class Navbar extends Component {
             <MultiPlayer
               urls={[
                 
-                "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/sbgsbuqa/106-the%20road%20to%20viridian%20city%20-%20from%20palette.mp3",
-                "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/xwvbnmtw/110-pokemon%20center.mp3",
-                "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/apzszjqg/130-cycling.mp3",
-                "https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/jucncspp/115-battle%20%28vs%20trainer%29.mp3"
+                "https://downloads.khinsider.com/game-soundtracks/album/pokemon-pocket-monsters-sound-anime-collection/01%2520Aim%2520to%2520Be%2520a%2520Pok%25C3%25A9mon%2520Master.mp3",
+                "https://downloads.khinsider.com/game-soundtracks/album/pokemon-pocket-monsters-sound-anime-collection/02%2520Pok%25C3%25A9mon%252C%2520I%2520Choose%2520You%2521.mp3",
+                "https://downloads.khinsider.com/game-soundtracks/album/pokemon-pocket-monsters-sound-anime-collection/03%2520Setting%2520Off.mp3",
+                "https://downloads.khinsider.com/game-soundtracks/album/pokemon-pocket-monsters-sound-anime-collection/22%2520Pok%25C3%25A9mon%2520Battle%2521.mp3"
               ]}
             />
           </li>
