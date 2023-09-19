@@ -39,7 +39,7 @@ export default class Navbar extends Component {
             <MultiPlayer
               urls={[
                 
-                "https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/01%20Opening%20%28part%201%29.mp3",
+                "https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/06%20Pokemon%20Gym.mp3",
                 "https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/05%20Pokemon%20Center.mp3",
                 "https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/33%20Cycling.mp3",
                 "https://fi.zophar.net/soundfiles/gameboy-gbs/pokemon-red/23%20Battle%20%28VS%20Trainer%29.mp3"
